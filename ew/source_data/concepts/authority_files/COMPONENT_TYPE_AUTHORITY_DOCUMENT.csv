@@ -1,0 +1,5 @@
+"conceptid","PrefLabel","AltLabels","ParentConceptid","ConceptType","Provider"
+"COMPONENT_TYPE:1","Watercraft","","COMPONENT_TYPE_AUTHORITY_DOCUMENT.csv","Index","SurveyLA"
+"COMPONENT_TYPE:2","Frame","","COMPONENT_TYPE_AUTHORITY_DOCUMENT.csv","Index","SurveyLA"
+"COMPONENT_TYPE:3","Sail","","COMPONENT_TYPE_AUTHORITY_DOCUMENT.csv","Index","SurveyLA"
+"COMPONENT_TYPE:4","Paddle","","COMPONENT_TYPE_AUTHORITY_DOCUMENT.csv","Index","SurveyLA"

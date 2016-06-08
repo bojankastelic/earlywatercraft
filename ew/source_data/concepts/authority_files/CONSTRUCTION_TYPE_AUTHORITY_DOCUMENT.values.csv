@@ -1,0 +1,7 @@
+conceptid,Value,ValueType,Provider 
+CONSTRUCTION_TYPE:0,1,sortorder,GCI
+CONSTRUCTION_TYPE:1,2,sortorder,GCI
+CONSTRUCTION_TYPE:2,4,sortorder,GCI
+CONSTRUCTION_TYPE:3,5,sortorder,GCI
+CONSTRUCTION_TYPE:4,3,sortorder,GCI
+

@@ -1,0 +1,5 @@
+conceptid,PrefLabel,AltLabels,ParentConceptid,ConceptType,Provider 
+EW_STATUS:1,Draft,,EW_STATUS_AUTHORITY_DOCUMENT.csv,Index,SurveyLA
+EW_STATUS:2,Pending approval,,EW_STATUS_AUTHORITY_DOCUMENT.csv,Index,SurveyLA
+EW_STATUS:3,Approval rejected,,EW_STATUS_AUTHORITY_DOCUMENT.csv,Index,SurveyLA
+EW_STATUS:4,Published,,EW_STATUS_AUTHORITY_DOCUMENT.csv,Index,SurveyLA

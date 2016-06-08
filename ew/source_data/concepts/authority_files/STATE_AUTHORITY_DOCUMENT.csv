@@ -1,0 +1,8 @@
+conceptid,PrefLabel,AltLabels,ParentConceptid,ConceptType,Provider 
+STATE:1,Slovenia,,STATE_AUTHORITY_DOCUMENT.csv,Index,EH
+STATE_2,Croatia,,STATE_AUTHORITY_DOCUMENT.csv,Index,EH
+STATE:3,Ireland,,STATE_AUTHORITY_DOCUMENT.csv,Index,EH
+STATE_4,GB_Wales,,STATE_AUTHORITY_DOCUMENT.csv,Index,EH
+STATE:5,Australia,,STATE_AUTHORITY_DOCUMENT.csv,Index,EH
+
+

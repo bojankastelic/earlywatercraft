@@ -1,0 +1,25 @@
+{% load i18n %}
+{% if 'REGION_E55' in report_info.source.graph %}	
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="">
+				<dl class="report-item-list">
+				    <dt>
+				        <h5 id="" class="arches-report-subsection-title">{% trans "Region" %}</h5>
+				    </dt>
+
+				    <dd class="arches-report-subsection-item empty-message" style="display:none;">
+				        {% trans "No settlement types recorded" %}
+				    </dd>
+		            {% for REGION_E55 in report_info.source.graph.REGION_E55 %}
+		                <dd class="arches-report-subsection-item report-list-item">
+		                    {{REGION_E55.REGION_E55__value}}
+                    		({{REGION_E55.STATE_E55__value}})
+		                </dd>
+		            {% endfor %}                          
+				</dl>
+			</div>
+		</div>
+	</div>
+{% endif %}
+

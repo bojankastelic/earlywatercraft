@@ -1,0 +1,3 @@
+conceptid,PrefLabel,AltLabels,ParentConceptid,ConceptType,Provider 
+ANALYSIS_TYPE:1,GAS,,ANALYSIS_TYPE_AUTHORITY_DOCUMENT.csv,Index,GCI
+ANALYSIS_TYPE:2,AMS,,ANALYSIS_TYPE_AUTHORITY_DOCUMENT.csv,Index,GCI

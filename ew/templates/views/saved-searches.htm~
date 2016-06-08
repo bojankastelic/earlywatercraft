@@ -1,0 +1,86 @@
+
+
+<!-- Service Blocks -->
+{% if user_can_edit == True %}
+<div class="row">
+    <div class="col-sm-4">
+        <div class="servive-block servive-block-default">
+            <i class="icon-custom rounded-x icon-bg-dark fa fa-file-text-o"></i>
+            <a class= "" href='?page=1&termFilter=[{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.Ew_Status.Draft.context}}"%2C"context_label"%3A"Ew Status"%2C"id"%3A"Draftb{{search_context.Ew_Status.Draft.context}}"%2C"text"%3A"Draft"%2C"value"%3A"{{search_context.Ew_Status.Draft.conceptid}}"}]&temporalFilter={"year_min_max"%3A[]%2C"filters"%3A[]%2C"inverted"%3Afalse}&spatialFilter={"geometry"%3A{"type"%3A""%2C"coordinates"%3A[]}%2C"buffer"%3A{"width"%3A"0"%2C"unit"%3A"ft"}%2C"inverted"%3Afalse}&mapExpanded=true&timeExpanded=false&include_ids=false'><h2 class="txt-color-blue">Drafts</h2></a>
+                               
+            <p>Early Watercraft - work in progress...</p>                        
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="servive-block servive-block-default">            
+            <i class="icon-custom rounded-x icon-bg-dark fa fa-tasks"></i>
+            <a class= "" href='?page=1&termFilter=[{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.Ew_Status.Pending_approval.context}}"%2C"context_label"%3A"Ew Status"%2C"id"%3A"Pending approvalb{{search_context.Ew_Status.Pending_approval.context}}"%2C"text"%3A"Pending approval"%2C"value"%3A"{{search_context.Ew_Status.Pending_approval.conceptid}}"}]&temporalFilter={"year_min_max"%3A[]%2C"filters"%3A[]%2C"inverted"%3Afalse}&spatialFilter={"geometry"%3A{"type"%3A""%2C"coordinates"%3A[]}%2C"buffer"%3A{"width"%3A"0"%2C"unit"%3A"ft"}%2C"inverted"%3Afalse}&mapExpanded=true&timeExpanded=false&include_ids=true'><h2 class="txt-color-blue">Pending Approval</h2></a>
+            <p>Early Watercraft, which is pending approval</p>
+        </div>
+    </div> 
+
+    <div class="col-sm-4">
+        <div class="servive-block servive-block-default">            
+            <i class="icon-custom rounded-x icon-bg-dark fa fa-bookmark-o"></i>
+            <a class= "" href='?page=1&termFilter=[{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.Ew_Status.Published.context}}"%2C"context_label"%3A"Ew Status"%2C"id"%3A"Published{{search_context.Ew_Status.Published.context}}"%2C"text"%3A"Published"%2C"value"%3A"{{search_context.Ew_Status.Published.conceptid}}"}]&temporalFilter={"year_min_max"%3A[]%2C"filters"%3A[]%2C"inverted"%3Afalse}&spatialFilter={"geometry"%3A{"type"%3A""%2C"coordinates"%3A[]}%2C"buffer"%3A{"width"%3A"0"%2C"unit"%3A"ft"}%2C"inverted"%3Afalse}&mapExpanded=true&timeExpanded=false&include_ids=true'><h2 class="txt-color-blue">Published</h2></a>
+            <p>All published Early Watercraft</p>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- Promo Box -->    
+<div class="row">
+    <div class="col-sm-4">
+        <div class="servive-block servive-block-default">
+            <i class="icon-custom rounded-x icon-bg-dark fa fa-ship"></i>
+            <a class="" href='/search?page=1&termFilter=[{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.State.Slovenia.context}}"%2C"context_label"%3A"State"%2C"id"%3A"Slovenia{{search_context.State.Slovenia.context}}"%2C"text"%3A"Slovenia"%2C"value"%3A"{{search_context.State.Slovenia.conceptid}}"}%2C{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.Material.Log.context}}"%2C"context_label"%3A"Material"%2C"id"%3A"Log{{search_context.Material.Log.context}}"%2C"text"%3A"Log"%2C"value"%3A"{{search_context.Material.Log.conceptid}}"}%2C{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.Resource_Classification.Boat.context}}"%2C"context_label"%3A"Resource Classification"%2C"id"%3A"Boat{{search_context.Resource_Classification.Boat.context}}"%2C"text"%3A"Boat"%2C"value"%3A"{{search_context.Resource_Classification.Boat.conceptid}}"}%2C{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.Component_Type.Watercraft.context}}"%2C"context_label"%3A"Component Type"%2C"id"%3A"Watercraft{{search_context.Component_Type.Watercraft.context}}"%2C"text"%3A"Watercraft"%2C"value"%3A"{{search_context.Component_Type.Watercraft.conceptid}}"}%2C{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.Construction_Type.Original.context}}"%2C"context_label"%3A"Construction Type"%2C"id"%3A"Original{{search_context.Construction_Type.Original.context}}"%2C"text"%3A"Original"%2C"value"%3A"{{search_context.Construction_Type.Original.conceptid}}"}]&temporalFilter={"year_min_max"%3A[]%2C"filters"%3A[]%2C"inverted"%3Afalse}&spatialFilter={"geometry"%3A{"type"%3A""%2C"coordinates"%3A[]}%2C"buffer"%3A{"width"%3A"0"%2C"unit"%3A"ft"}%2C"inverted"%3Afalse}&mapExpanded=true&timeExpanded=false&include_ids=true'><h2 class="txt-color-blue">Slovenian Logboats</h2></a>
+            <p>View all logboats (originals), found in Slovenia</p>                        
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="servive-block servive-block-default">
+            <i class="icon-custom rounded-x icon-bg-dark fa fa-long-arrow-down"></i>
+            <a class="" href='/search?page=1&termFilter=[{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.State.Slovenia.context}}"%2C"context_label"%3A"State"%2C"id"%3A"Slovenia{{search_context.State.Slovenia.context}}"%2C"text"%3A"Slovenia"%2C"value"%3A"{{search_context.State.Slovenia.conceptid}}"}%2C{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.Material.Log.context}}"%2C"context_label"%3A"Material"%2C"id"%3A"Log{{search_context.Material.Log.context}}"%2C"text"%3A"Log"%2C"value"%3A"{{search_context.Material.Log.conceptid}}"}%2C{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.Component_Type.Paddle.context}}"%2C"context_label"%3A"Component Type"%2C"id"%3A"Paddle{{search_context.Component_Type.Paddle.context}}"%2C"text"%3A"Paddle"%2C"value"%3A"{{search_context.Component_Type.Paddle.conceptid}}"}%2C{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.Construction_Type.Original.context}}"%2C"context_label"%3A"Construction Type"%2C"id"%3A"Original{{search_context.Construction_Type.Original.context}}"%2C"text"%3A"Original"%2C"value"%3A"{{search_context.Construction_Type.Original.conceptid}}"}]&temporalFilter={"year_min_max"%3A[]%2C"filters"%3A[]%2C"inverted"%3Afalse}&spatialFilter={"geometry"%3A{"type"%3A""%2C"coordinates"%3A[]}%2C"buffer"%3A{"width"%3A"0"%2C"unit"%3A"ft"}%2C"inverted"%3Afalse}&mapExpanded=true&timeExpanded=false&include_ids=true'><h2 class="txt-color-blue">Slovenian Paddles</h2></a>
+            <p>View all paddles (stand alone and with logboats), found in Slovenia</p>                        
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="servive-block servive-block-default">
+            <i class="icon-custom rounded-x icon-bg-dark fa fa-files-o"></i>
+            <a class="" href='/search?page=1&termFilter=[{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.State.Slovenia.context}}"%2C"context_label"%3A"State"%2C"id"%3A"Slovenia{{search_context.State.Slovenia.context}}"%2C"text"%3A"Slovenia"%2C"value"%3A"{{search_context.State.Slovenia.conceptid}}"}%2C{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.Material.Log.context}}"%2C"context_label"%3A"Material"%2C"id"%3A"Log{{search_context.Material.Log.context}}"%2C"text"%3A"Log"%2C"value"%3A"{{search_context.Material.Log.conceptid}}"}%2C{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.Construction_Type.Replica.context}}"%2C"context_label"%3A"Construction Type"%2C"id"%3A"Replica{{search_context.Construction_Type.Replica.context}}"%2C"text"%3A"Replica"%2C"value"%3A"{{search_context.Construction_Type.Replica.conceptid}}"}]&temporalFilter={"year_min_max"%3A[]%2C"filters"%3A[]%2C"inverted"%3Afalse}&spatialFilter={"geometry"%3A{"type"%3A""%2C"coordinates"%3A[]}%2C"buffer"%3A{"width"%3A"0"%2C"unit"%3A"ft"}%2C"inverted"%3Afalse}&mapExpanded=true&timeExpanded=false&include_ids=true'><h2 class="txt-color-blue">Slovenian Logboat Replicas</h2></a>
+            <p>View all Slovenian logboat replicas</p>                        
+        </div>
+    </div>
+
+
+
+</div>
+<!-- End Promo Box -->
+<div class="row">
+    <div class="col-sm-4">
+        <div class="servive-block servive-block-default">
+            <i class="icon-custom rounded-x icon-bg-dark fa fa-university"></i>
+            <a class="" href='/search?page=1&termFilter=[{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.State.Slovenia.context}}"%2C"context_label"%3A"State"%2C"id"%3A"Slovenia{{search_context.State.Slovenia.context}}"%2C"text"%3A"Slovenia"%2C"value"%3A"{{search_context.State.Slovenia.conceptid}}"}%2C{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.Context.Pile_Dwelling.context}}"%2C"context_label"%3A"Context"%2C"id"%3A"Pile Dwelling{{search_context.Context.Pile_Dwelling.context}}"%2C"text"%3A"Pile Dwelling"%2C"value"%3A"{{search_context.Context.Pile_Dwelling.conceptid}}"}]&temporalFilter={"year_min_max"%3A[]%2C"filters"%3A[]%2C"inverted"%3Afalse}&spatialFilter={"geometry"%3A{"type"%3A""%2C"coordinates"%3A[]}%2C"buffer"%3A{"width"%3A"0"%2C"unit"%3A"ft"}%2C"inverted"%3Afalse}&mapExpanded=true&timeExpanded=false&include_ids=true'><h2 class="txt-color-blue">Pile Dwellings logboats</h2></a>
+            <p>Logboats from pile dwellings</p>                        
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="servive-block servive-block-default">
+            <i class="icon-custom rounded-x icon-bg-dark fa fa-anchor"></i>
+            <a class= "" href='?page=1&termFilter=[{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.Settlement_Type.Underwater.context}}"%2C"context_label"%3A"Settlement Type"%2C"id"%3A"Underwater{{search_context.Settlement_Type.Underwater.context}}"%2C"text"%3A"Underwater"%2C"value"%3A"{{search_context.Settlement_Type.Underwater.conceptid}}"}]&temporalFilter={"year_min_max"%3A[]%2C"filters"%3A[]%2C"inverted"%3Afalse}&spatialFilter={"geometry"%3A{"type"%3A""%2C"coordinates"%3A[]}%2C"buffer"%3A{"width"%3A"0"%2C"unit"%3A"ft"}%2C"inverted"%3Afalse}&mapExpanded=true&timeExpanded=false&include_ids=true'><h2 class="txt-color-blue">Underwater Logboats</h2></a>
+            <p>View all logboats still under water</p>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="servive-block servive-block-default">
+            <i class="icon-custom rounded-x icon-bg-dark fa fa-trophy"></i>
+            <a class= "" href='?page=1&termFilter=[{"inverted"%3Afalse%2C"type"%3A"concept"%2C"context"%3A"{{search_context.Historical_Period.NEOLITHIC.context}}"%2C"context_label"%3A"Historical Period"%2C"id"%3A"NEOLITHIC{{search_context.Historical_Period.NEOLITHIC.context}}"%2C"text"%3A"NEOLITHIC"%2C"value"%3A"{{search_context.Historical_Period.NEOLITHIC.conceptid}}"}]&temporalFilter={"year_min_max"%3A[]%2C"filters"%3A[]%2C"inverted"%3Afalse}&spatialFilter={"geometry"%3A{"type"%3A""%2C"coordinates"%3A[]}%2C"buffer"%3A{"width"%3A"0"%2C"unit"%3A"ft"}%2C"inverted"%3Afalse}&mapExpanded=true&timeExpanded=false&include_ids=true'><h2 class="txt-color-blue">Neolithic Logboats</h2></a>
+            <p>View all logboats from Neolithic period</p>
+        </div>
+    </div>
+</div>

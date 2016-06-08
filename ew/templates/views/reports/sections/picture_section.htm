@@ -1,0 +1,159 @@
+{% load i18n %}
+<!-- Related Resources -->
+{% if related_resource_dict.INFORMATION_RESOURCE_IMAGE|length > 0 or related_resource_dict.INFORMATION_RESOURCE_3DHOP|length > 0 or related_resource_dict.INFORMATION_RESOURCE_JSC3D|length > 0 %}
+					            <div class="row">
+
+					                <!-- Section Header -->
+					                <div class="col-sm-4">
+					                    <h3 class="arches-report-subsection">&nbsp;</h3>
+					                </div>
+					                <!-- End Section Header -->
+
+					                <!-- Section Content -->
+					                <div class="col-sm-8 arches-report-group-spacer" style="padding-left: 22px;">
+
+					                    <!-- Spacer -->
+					                    <div class="arches-report-spacer hidden-xs"></div>
+
+										{% if related_resource_dict.INFORMATION_RESOURCE_IMAGE|length > 0 %}
+
+						                    <div class="row">
+						                        <div class="col-xs-12">
+
+						                            <dl>
+						                                <dt>
+						                                    <h5 class="arches-report-subsection-title arches-report-spacer">
+						                                        {% trans "Images" %}
+						                                    </h5>
+						                                </dt>
+
+						                                <!-- Links for Image Gallery Supply Image in the href, thumbnails in the img tags -->
+						                                {% for related_resource in related_resource_dict.INFORMATION_RESOURCE_IMAGE %}
+						                                    <dd class="arches-report-subsection-item">
+                                                                <div id="" style="margin-top: 5px;">
+                                                                    <img src="{{related_resource.file_path}}" alt="" class="" style="width: 100%; margin-bottom: 30px; border: solid 1px #555;" onerror="this.src='{{STATIC_URL}}img/photo_missing.png';">
+                                                                </div>
+                                                            </dd>
+
+						                                    {% empty %}
+						                                        <dd class="arches-report-subsection-item">
+						                                            {% trans "None" %}
+						                                        </dd>                                                        
+						                                {% endfor %}
+						                                
+						                            </dl>
+						                        </div>
+						                    </div>
+										{% endif %}
+										<!-- Too slow...
+										{% if related_resource_dict.INFORMATION_RESOURCE_3DHOP|length > 0 or related_resource_dict.INFORMATION_RESOURCE_JSC3D|length > 0 %}
+
+						                    <div class="row">
+						                        <div class="col-xs-12">
+
+						                            <dl>
+						                                <dt>
+						                                    <h5 class="arches-report-subsection-title arches-report-spacer">
+						                                        {% trans "3D model example" %}
+						                                    </h5>
+						                                </dt>
+                                                        {% for related_resource in related_resource_dict.INFORMATION_RESOURCE_JSC3D %}
+	                                                        {% if forloop.first %}
+	                                                            <dd class="arches-report-subsection-item">
+	                                                                <div id="" style="margin-top: 5px;">
+																	    <canvas id="cv" style="border: 1px solid;" width="702" height="702" ></canvas>
+																        <script type="text/javascript" src="..{{STATIC_URL}}js/3d/zip.js"></script>
+																	    <script type="text/javascript" src="..{{STATIC_URL}}js/3d/jsc3d.js"></script>
+																	    <script type="text/javascript" src="..{{STATIC_URL}}js/3d/jsc3d.webgl.js"></script>
+																	    <script type="text/javascript" src="..{{STATIC_URL}}js/3d/jsc3d.touch.js"></script>
+																	    <script type="text/javascript">
+																	    var canvas = document.getElementById('cv');
+																	    var viewer = new JSC3D.Viewer(canvas);
+																	    viewer.setParameter('SceneUrl', '{{related_resource.file_path}}');
+																	    viewer.setParameter('InitRotationX', 0);
+																	    viewer.setParameter('InitRotationY', 30);
+																	    viewer.setParameter('InitRotationZ', 0);
+																	    viewer.setParameter('ModelColor', '#57524C');
+																	    viewer.setParameter('BackgroundColor1', '#FFFFFF');
+																	    viewer.setParameter('BackgroundColor2', '#000000');
+																	    viewer.setParameter('RenderMode', 'texturesmooth');
+																	    viewer.setParameter('MipMapping', 'on');
+																	    viewer.setParameter('Renderer', 'webgl');
+																	    viewer.init();
+																	    viewer.update();
+																      </script>
+	                                                                </div>
+	                                                            </dd> 
+	                                                        {% endif %}                                                       
+						                                {% endfor %}
+						                                {% for related_resource in related_resource_dict.INFORMATION_RESOURCE_3DHOP %}
+						                                    {% if forloop.first %}
+                                                                <dd class="arches-report-subsection-item">
+                                                                    <div id="" style="margin-top: 5px;">
+                                                                        <link type="text/css" rel="stylesheet" href="..{{STATIC_URL}}css/3dhop.css"/>  
+                                                                        <script type="text/javascript" src="..{{STATIC_URL}}js/3d/3dhop/spidergl.js"></script>
+                                                                        <script type="text/javascript" src="..{{STATIC_URL}}js/3d/3dhop/jquery.js"></script>
+                                                                        <script type="text/javascript" src="..{{STATIC_URL}}js/3d/3dhop/presenter.js"></script>
+                                                                        <script type="text/javascript" src="..{{STATIC_URL}}js/3d/3dhop/nexus.js"></script>
+                                                                        <script type="text/javascript" src="..{{STATIC_URL}}js/3d/3dhop/ply.js"></script>
+                                                                        <script type="text/javascript" src="..{{STATIC_URL}}js/3d/3dhop/trackball_sphere.js"></script>
+                                                                        <script type="text/javascript" src="..{{STATIC_URL}}js/3d/3dhop/trackball_turntable.js"></script>
+                                                                        <script type="text/javascript" src="..{{STATIC_URL}}js/3d/3dhop/trackball_turntable_pan.js"></script>
+                                                                        <script type="text/javascript" src="..{{STATIC_URL}}js/3d/3dhop/trackball_pantilt.js"></script>
+                                                                        <script type="text/javascript" src="..{{STATIC_URL}}js/3d/3dhop/init.js"></script>
+                                                                        <div id="3dhop" class="tdhop" onmousedown="if (event.preventDefault) event.preventDefault()"><div id="tdhlg"></div>
+                                                                         <div id="toolbar">
+                                                                          <img id="home"     title="Home"                  src="..{{STATIC_URL}}img/skins/dark/home.png"   /><br/>
+                                                                          <img id="zoomin"   title="Zoom In"               src="..{{STATIC_URL}}img/skins/dark/zoomin.png" /><br/>
+                                                                          <img id="zoomout"  title="Zoom Out"              src="..{{STATIC_URL}}img/skins/dark/zoomout.png"/><br/>
+                                                                          <img id="light_on" title="Disable Light Control" src="..{{STATIC_URL}}img/skins/dark/light_on.png" style="position:absolute; visibility:hidden;"/>
+                                                                          <img id="light"    title="Enable Light Control"  src="..{{STATIC_URL}}img/skins/dark/light.png"/><br/>
+                                                                          <img id="full_on"  title="Exit Full Screen"      src="..{{STATIC_URL}}img/skins/dark/full_on.png" style="position:absolute; visibility:hidden;"/>
+                                                                          <img id="full"     title="Full Screen"           src="..{{STATIC_URL}}img/skins/dark/full.png"   />
+                                                                         </div>
+                                                                         <canvas id="draw-canvas" style="border: 1px solid;background-image: url(..{{STATIC_URL}}img/skins/backgrounds/light.jpg);" width="702" height="702"/>
+                                                                        </div>
+                                                                        <script type="text/javascript">
+                                                                        var presenter = null;
+
+                                                                        function setup3dhop() { 
+                                                                            presenter = new Presenter("draw-canvas");
+                                                                            presenter.setScene({
+                                                                                meshes: {
+	                                                                                "Mesh" : { url: "{{related_resource.file_path}}" }
+                                                                                },
+                                                                                modelInstances : {
+	                                                                                "Model1" : {
+		                                                                                mesh : "Mesh"
+	                                                                                }
+                                                                                }
+                                                                            });
+                                                                        }
+                                                                        function actionsToolbar(action) {
+                                                                            if(action=='home') presenter.resetTrackball(); 
+                                                                            else if(action=='zoomin') presenter.zoomIn();
+                                                                            else if(action=='zoomout') presenter.zoomOut(); 
+                                                                            else if(action=='light' || action=='light_on') { presenter.enableLightTrackball(!presenter.isLightTrackballEnabled()); lightSwitch(); } 
+                                                                            else if(action=='full'  || action=='full_on') fullscreenSwitch(); 
+                                                                        }
+
+                                                                        $(document).ready(function(){
+                                                                            init3dhop();
+
+                                                                            setup3dhop();
+                                                                        });
+                                                                        </script>
+                                                                    </div>		                                                                
+                                                                </dd>
+                                                            {% endif %}                                                  
+						                                {% endfor %}	
+						                            </dl>
+						                        </div>
+						                    </div>
+										{% endif %}
+		                                -->					                                
+					                </div>
+					                <!-- End Section Content-->
+					            </div>
+{% endif %}
+<!-- End Related Resource Container -->

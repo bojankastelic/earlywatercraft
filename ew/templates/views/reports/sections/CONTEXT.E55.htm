@@ -1,0 +1,22 @@
+{% load i18n %}
+{% if 'CONTEXT_E55' in report_info.source.graph %}
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="">
+                <dl class="report-item-list">
+                    <dt>
+                        <h5 id="" class="arches-report-subsection-title">{% trans "Contexts" %}</h5>
+                    </dt>
+    <!--		    <dd class="arches-report-subsection-item empty-message" style="display:none;">
+                        {% trans "No settlement types recorded" %}
+                    </dd> -->
+                    {% for CONTEXT_E55 in report_info.source.graph.CONTEXT_E55 %}
+                        <dd class="arches-report-subsection-item report-list-item">
+                            {{CONTEXT_E55.CONTEXT_E55__label}}
+                        </dd>
+                    {% endfor %}  
+	            </dl>
+            </div>
+        </div>
+    </div>                
+{% endif %}

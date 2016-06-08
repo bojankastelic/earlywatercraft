@@ -1,0 +1,28 @@
+conceptid,PrefLabel,AltLabels,ParentConceptid,ConceptType,Provider 
+REGION:0,Slovenia,,REGION_AUTHORITY_DOCUMENT.csv,Index,SurveyLA
+REGION:1,Central Slovenia,,REGION:0,Index,SurveyLA
+REGION:2,Gorenjska,,REGION:0,Index,SurveyLA
+REGION:3,Goriška,,REGION:0,Index,SurveyLA
+REGION:4,Obalno-kraška,,REGION:0,Index,SurveyLA
+REGION:5,Notranjsko-kraška,,REGION:0,Index,SurveyLA
+REGION:6,Dolenjska,,REGION:0,Index,SurveyLA
+REGION:7,Zasavska,,REGION:0,Index,SurveyLA
+REGION:8,Spodnjeposavska,,REGION:0,Index,SurveyLA
+REGION:9,Savinjska,,REGION:0,Index,SurveyLA
+REGION:10,Koroška,,REGION:0,Index,SurveyLA
+REGION:11,Podravska,,REGION:0,Index,SurveyLA
+REGION:12,Pomurska,,REGION:0,Index,SurveyLA
+REGION:20,Croatia,,REGION_AUTHORITY_DOCUMENT.csv,Index,SurveyLA
+REGION:21,Istra and Croatian Littoral,,REGION:20,Index,SurveyLA
+REGION:22,Zagreb and central Croatia,,REGION:20,Index,SurveyLA
+REGION:23,North-western Croatia,,REGION:20,Index,SurveyLA
+REGION:24,Eastern Croatia,,REGION:20,Index,SurveyLA
+REGION:25,Lika and Gorski Kotar,,REGION:20,Index,SurveyLA
+REGION:26,Dalmatia,,REGION:20,Index,SurveyLA
+REGION:30,Ireland,,REGION_AUTHORITY_DOCUMENT.csv,Index,SurveyLA
+REGION:31,-,,REGION:30,Index,SurveyLA
+REGION:40,GB_Wales,,REGION_AUTHORITY_DOCUMENT.csv,Index,SurveyLA
+REGION:41,-,,REGION:40,Index,SurveyLA
+REGION:50,Australia,,REGION_AUTHORITY_DOCUMENT.csv,Index,SurveyLA
+REGION:51,-,,REGION:50,Index,SurveyLA
+

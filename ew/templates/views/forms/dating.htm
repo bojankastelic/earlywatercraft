@@ -1,0 +1,427 @@
+{% extends "views/forms/base.htm" %}
+{% load i18n %}
+
+{% block form_content %}
+<!-- Period -->
+<div id="all-periods-section">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="padding-left-10">
+                
+                <dl>
+                    <!-- Title -->
+                    <dt>
+                        <h5 id="arches-dating-form" class="section-headline">{% trans "Period" %}</h5>
+                    </dt>
+                    <!-- Form -->
+                    <dd>
+                        <div class="row">
+
+                            <div class="col-xs-12">
+
+                                <div id="period-section">
+                                    <!-- Period -->   
+                                    <input style="width:40%; display:inline-block;" class="select2 arches-select2-crud-form name-type hidden-xs" id="resource-dating-type" data-bind="select2: {value: getEditedNode('HISTORICAL_PERIOD.E55', 'value'),  placeholder: '{% trans "Period" %}', dataKey: 'HISTORICAL_PERIOD.E55'}"></input>
+                                    <input style="width:100%;display:inline-block;" class="select2 arches-select2-crud-form name-type hidden-sm hidden-md hidden-lg" id="resource-dating-type" data-bind="select2: {value: getEditedNode('HISTORICAL_PERIOD.E55', 'value'),  placeholder: '{% trans "Period" %}', dataKey: 'HISTORICAL_PERIOD.E55'}"></input>
+                                </div>
+								<div style="line-height:30%">
+									<br>
+								</div>
+                                <div id="known-date-section">
+                                    <!-- Known date -->   
+                                    <div class="form-group datetimepicker hidden-xs" style="width:40%;">
+                                        <div class="input-group">
+                                            <input type="text" name="mydate" id="date" placeholder='{% trans "Known date (yyyy-mm-dd)" %}' class="form-control datepicker" data-date-format="YYYY-MM-DD" data-bind="{value: getEditedNode('KNOWN_DATE.E50', 'value')} ">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group datetimepicker hidden-sm hidden-md hidden-lg" style="width:100%;">
+                                        <div class="input-group">
+                                            <input type="text" name="mydate" id="date" placeholder='{% trans "Known date (yyyy-mm-dd)" %}' class="form-control datepicker" data-date-format="YYYY-MM-DD" data-bind="{value: getEditedNode('KNOWN_DATE.E50', 'value')} ">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </dd>
+                    <!-- End Form -->
+
+                    <div class="alert alert-danger branch-invalid-alert" role="alert" style="display:none;">{% trans "Period must be selected." %}</div>
+                </dl>
+
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="devider arches-RDM-divider">
+
+<div id="date-section">
+   <div class="row">
+        <div class="col-xs-12">
+            <div class="padding-left-10">
+                
+                <dl>
+                    <!-- Title -->
+                    <dt>
+                        <h5 id="arches-dating-form" class="section-headline">{% trans "Dendrochronological Dating" %}</h5>
+                    </dt>
+                    <!-- Form -->
+                    <dd>
+                        <div class="row">
+
+                            <div class="col-xs-12">
+
+                                <!-- Date -->
+                                <input class="form-control arches-form-input hidden-xs" id="dating-value" style="width: 20%;" placeholder="Date" data-bind="{value: getEditedNode('DATE.E60', 'value')}">
+                                <input class="form-control arches-form-input hidden-sm hidden-md hidden-lg" id="dating-value" style="width: 86.5%;" placeholder="Date" data-bind="{value: getEditedNode('DATE.E60', 'value')}">
+
+								<div style="line-height:30%" class="hidden-sm hidden-md hidden-lg">
+									<br>
+								</div>
+
+                                <!-- BP/BC/AD -->
+                                <input style="width:20%; display:inline-block;" class="select2 arches-select2-crud-form name-type hidden-xs" id="resource-dating-type" data-bind="select2: {value: getEditedNode('DATE_DATING_CONVENTION.E55', 'value'),  placeholder: '{% trans "BP/BC/AD" %}', dataKey: 'DATE_DATING_CONVENTION.E55'}"></input>
+                                <input style="width:86.5%; display:inline-block;" class="select2 arches-select2-crud-form name-type hidden-sm hidden-md hidden-lg" id="resource-dating-type" data-bind="select2: {value: getEditedNode('DATE_DATING_CONVENTION.E55', 'value'),  placeholder: '{% trans "BP/BC/AD" %}', dataKey: 'DATE_DATING_CONVENTION.E55'}"></input>
+
+                                <hr class="devider arches-RDM-divider" style="margin-left:0px">
+
+								<div style="line-height:30%">
+									<br>
+								</div>
+							</div>
+						</div>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Dendrocronological dating -->
+<div id="dc-section">
+   <div class="row">
+        <div class="col-xs-12">
+            <div class="padding-left-10">
+                
+                <dl>
+                    <!-- Form -->
+                    <dd>
+                        <div class="row">
+
+                            <div class="col-xs-12">
+
+                                <!-- Year -->
+                                <input class="form-control arches-form-input hidden-xs" id="dating-value" style="width: 20%;" placeholder="Year" data-bind="{value: getEditedNode('YEAR.E60', 'value')}">
+                                <input class="form-control arches-form-input hidden-sm hidden-md hidden-lg" id="dating-value" style="width: 86.5%;" placeholder="Year" data-bind="{value: getEditedNode('YEAR.E60', 'value')}">
+
+								<div style="line-height:30%" class="hidden-sm hidden-md hidden-lg">
+									<br>
+								</div>
+
+                                <!-- BP/BC/AD -->
+                                <input style="width:20%; display:inline-block;" class="select2 arches-select2-crud-form name-type hidden-xs" id="resource-dating-type" data-bind="select2: {value: getEditedNode('YEAR_DATING_CONVENTION.E55', 'value'),  placeholder: '{% trans "BP/BC/AD" %}', dataKey: 'YEAR_DATING_CONVENTION.E55'}"></input>
+                                <input style="width:86.5%; display:inline-block;" class="select2 arches-select2-crud-form name-type hidden-sm hidden-md hidden-lg" id="resource-dating-type" data-bind="select2: {value: getEditedNode('YEAR_DATING_CONVENTION.E55', 'value'),  placeholder: '{% trans "BP/BC/AD" %}', dataKey: 'YEAR_DATING_CONVENTION.E55'}"></input>
+
+							    <div style="line-height:30%;">
+								    <br>
+							    </div>
+								<div style="line-height:50%" class="hidden-sm hidden-md hidden-lg">
+									<br>
+								</div>
+
+                                <!-- TVbp -->
+                                <input class="form-control arches-form-input hidden-xs" id="dating-value" style="width: 20%;" placeholder="TVBP" data-bind="{value: getEditedNode('TVBP.E60', 'value')}">
+                                <input class="form-control arches-form-input hidden-sm hidden-md hidden-lg" id="dating-value" style="width: 86.5%;" placeholder="TVBP" data-bind="{value: getEditedNode('TVBP.E60', 'value')}">
+
+								<div style="line-height:30%" class="hidden-sm hidden-md hidden-lg">
+									<br>
+								</div>
+
+                                <!-- Glk% -->
+                                <input class="form-control arches-form-input hidden-xs" id="dating-value" style="width: 20%;" placeholder="Glk%" data-bind="{value: getEditedNode('GLK.E60', 'value')}">
+                                <input class="form-control arches-form-input hidden-sm hidden-md hidden-lg" id="dating-value" style="width: 86.5%;display:inline-block;" placeholder="Glk%" data-bind="{value: getEditedNode('GLK.E60', 'value')}">
+
+							    <span class="text-muted arches-crud-type-identifier">
+                                %
+                                </span>
+
+								<div style="line-height:30%" class="hidden-sm hidden-md hidden-lg">
+									<br>
+								</div>
+
+                                <!-- OVL -->
+                                <input class="form-control arches-form-input hidden-xs" id="dating-value" style="width: 20%;" placeholder="OVL" data-bind="{value: getEditedNode('OVL.E60', 'value')}">
+                                <input class="form-control arches-form-input hidden-sm hidden-md hidden-lg" id="dating-value" style="width: 86.5%;" placeholder="OVL" data-bind="{value: getEditedNode('OVL.E60', 'value')}">
+
+							    <div style="line-height:30%;">
+								    <br>
+							    </div>
+								<div style="line-height:50%" class="hidden-sm hidden-md hidden-lg">
+									<br>
+								</div>
+
+                                <!-- Sample Number -->
+                                <input class="form-control arches-form-input hidden-xs" id="dating-sn" style="width: 20%;" placeholder="Sample Number" data-bind="{value: getEditedNode('DC_SAMPLE_NUMBER.E42', 'value')}">
+                                <input class="form-control arches-form-input hidden-sm hidden-md hidden-lg" id="dating-sn" style="width: 86.5%;" placeholder="Sample Number" data-bind="{value: getEditedNode('DC_SAMPLE_NUMBER.E42', 'value')}">
+
+								<div style="line-height:30%" class="hidden-sm hidden-md hidden-lg">
+									<br>
+								</div>
+    
+                                <!-- Number of tree rings -->
+                                <input class="form-control arches-form-input hidden-xs" id="dating-notr" style="width: 20%;" placeholder="Number of tree rings" data-bind="{value: getEditedNode('NUM_OF_TREE_RINGS.E60', 'value')}">
+							    <input class="form-control arches-form-input hidden-sm hidden-md hidden-lg" id="dating-notr" style="width: 86.5%;" placeholder="Number of tree rings" data-bind="{value: getEditedNode('NUM_OF_TREE_RINGS.E60', 'value')}">
+							    <span class="text-muted arches-crud-type-identifier hidden-xs">
+                                &nbsp;&nbsp;&nbsp;
+                                </span>
+								<div style="line-height:30%" class="hidden-sm hidden-md hidden-lg">
+									<br>
+								</div>
+                                <!-- Reference curve -->   
+                                <input style="width:20%" class="form-control arches-form-input hidden-xs" id="dating-rc" placeholder ="Reference Curve" data-bind="{value: getEditedNode('REFERENCE_CURVE.E42', 'value')}"></input>
+                                <input style="width:86.5%" class="form-control arches-form-input hidden-sm hidden-md hidden-lg" id="dating-rc" placeholder ="Reference Curve" data-bind="{value: getEditedNode('REFERENCE_CURVE.E42', 'value')}"></input>&nbsp;
+                                <div style="float: right;" class="hidden-xs">                  
+                                {% include 'views/components/add-item-button.htm' %}
+								</div>
+                                <div class="hidden-sm hidden-md hidden-lg">                  
+                                {% include 'views/components/add-item-button.htm' %}
+								</div>
+
+                            </div>
+                        </div>
+                    </dd>
+                    <!-- End Form -->
+
+                    <div class="alert alert-danger branch-invalid-alert" role="alert" style="display:none;">{% trans "All Dendrochronological Dating values must be populated." %}</div>
+                </dl>
+
+            </div>
+        </div>
+    </div>
+    <!-- Name Records -->
+    <div class="row">
+        <div class="col-xs-12">
+
+            <!-- Address -->
+            <div class="arches-crud-child-section">
+                <dl>
+                    <dd class="arches-CRUD-child-title">
+                        {% trans "This watercraft has these dendrochronological dating measurements:" %}
+                    </dd>
+
+                    <dd class="margin-left-5" style="display: none;" data-bind="visible: true">
+                        <div data-bind="visible: getBranchLists().length == 0" class="txt-color-blue">{% trans "No Dendrochronological Dating Measurements Defined" %}</div>   
+                        
+                        <div data-bind='foreach: getBranchLists()'>
+                            <div class="arches-crud-record">
+                                <a href="javascript:void(0)" class="arches-CRUD-child" title="{% trans "Delete this dating" %}"><i data-bind='click: $parent.deleteItem.bind($parent)' class="arches-CRUD-delete fa fa-times-circle"></i></a>
+                                <a href="javascript:void(0)" class="arches-CRUD-child arches-CRUD-edit" data-bind='click: $parent.editItem.bind($parent)' title="Edit this dating">
+                                    <span data-bind='text: nodes.get("YEAR.E60", "value")' style="padding-right:2px;"></span>
+                                    <span data-bind='text: nodes.get("YEAR_DATING_CONVENTION.E55", "label")' style="padding-right:2px;"></span><span class="text-muted arches-crud-type-identifier"> ({% trans "Year" %})</span>
+                                    <span data-bind='text: nodes.get("TVBP.E60", "value")' style="padding-right:2px;"></span><span class="text-muted arches-crud-type-identifier"> ({% trans "TVBP" %}),</span>
+                                    <span data-bind='text: nodes.get("GLK.E60", "value")' style="padding-right:2px;"></span><span class="text-muted arches-crud-type-identifier"> ({% trans "Glk%" %}),</span>
+                                    <span data-bind='text: nodes.get("OVL.E60", "value")' style="padding-right:2px;"></span><span class="text-muted arches-crud-type-identifier"> ({% trans "OVL" %}),</span>
+        		                    <br>
+                                    <span data-bind='text: nodes.get("DC_SAMPLE_NUMBER.E42", "value")' style="padding-right:2px;"></span><span class="text-muted arches-crud-type-identifier"> ({% trans "Sample number" %})</span>
+                                    <span data-bind='text: nodes.get("NUM_OF_TREE_RINGS.E60", "value")' style="padding-right:2px;"></span><span class="text-muted arches-crud-type-identifier"> ({% trans "Number of tree rings" %})</span>
+                                    <span data-bind='text: nodes.get("REFERENCE_CURVE.E42", "value")' style="padding-right:2px;"></span><span class="text-muted arches-crud-type-identifier"> ({% trans "Reference curve" %})</span>
+                                </a>
+                            </div>
+                        </div>
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="devider arches-RDM-divider">
+
+<!-- C14 Dating -->
+<div id="c14-section">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="padding-left-10">
+                
+                <dl>
+                    <!-- Title -->
+                    <dt>
+                        <h5 id="arches-dating-form" class="section-headline">{% trans "C14 Dating" %}</h5>
+                    </dt>
+                    <!-- Form -->
+                    <dd>
+                        <div class="row">
+
+                            <div class="col-xs-12">
+
+                                <!-- Measured radiocarbon age -->
+                                <input style="width:30%" class="form-control arches-form-input hidden-xs" id="dating-value" placeholder="Measured radiocarbon age" data-bind="{value: getEditedNode('MEASURED_RC_AGE.E60', 'value')}">
+                                <input style="width:86.5%;display:inline-block;" class="form-control arches-form-input hidden-sm hidden-md hidden-lg" id="dating-value" placeholder="Measured radiocarbon age" data-bind="{value: getEditedNode('MEASURED_RC_AGE.E60', 'value')}">
+
+							    <span class=text-muted arches-crud-type-identifier">
+                                ±
+                                </span>
+
+								<div style="line-height:30%" class="hidden-sm hidden-md hidden-lg">
+									<br>
+								</div>
+
+                                <!-- +/- -->
+                                <input style="width:8%" class="form-control arches-form-input hidden-xs" id="dating-value" placeholder="+/-" data-bind="{value: getEditedNode('MEASURED_RC_AGE_RANGE.E60', 'value')}">
+                                <input style="width:86.5%;display:inline-block;" class="form-control arches-form-input hidden-sm hidden-md hidden-lg" id="dating-value" placeholder="+/-" data-bind="{value: getEditedNode('MEASURED_RC_AGE_RANGE.E60', 'value')}">
+
+                                <span class=text-muted arches-crud-type-identifier">
+                                BP
+                                </span>
+
+							    <div style="line-height:30%;">
+								    <br>
+							    </div>
+								<div style="line-height:50%" class="hidden-sm hidden-md hidden-lg">
+									<br>
+								</div>
+
+                                <!-- C13/C12 ratio -->
+                                <input style="width:30%" class="form-control arches-form-input hidden-xs" id="dating-value" style="width: 20%;" placeholder="C13/C12 ratio (‰)" data-bind="{value: getEditedNode('C13_C12_RATIO.E60', 'value')}">
+                                <input style="width:86.5%;display:inline-block;" class="form-control arches-form-input hidden-sm hidden-md hidden-lg" id="dating-value" style="width: 20%;" placeholder="C13/C12 ratio (‰)" data-bind="{value: getEditedNode('C13_C12_RATIO.E60', 'value')}">
+
+							    <span class=text-muted arches-crud-type-identifier">
+                                ‰
+                                </span>
+
+							    <div style="line-height:30%;">
+								    <br>
+							    </div>
+								<div style="line-height:50%" class="hidden-sm hidden-md hidden-lg">
+									<br>
+								</div>
+
+
+                                <!-- Conventional Radiocarbon Age -->
+                                <input style="width:30%" class="form-control arches-form-input hidden-xs" id="dating-value" style="width: 20%;" placeholder="Conventional radiocarbon age" data-bind="{value: getEditedNode('CONVENTIONAL_RC_AGE.E60', 'value')}">
+                                <input style="width:86.5%;display:inline-block;" class="form-control arches-form-input hidden-sm hidden-md hidden-lg" id="dating-value" style="width: 20%;" placeholder="Conventional radiocarbon age" data-bind="{value: getEditedNode('CONVENTIONAL_RC_AGE.E60', 'value')}">
+
+							    <span class=text-muted arches-crud-type-identifier">
+                                ±
+                                </span>
+
+								<div style="line-height:30%" class="hidden-sm hidden-md hidden-lg">
+									<br>
+								</div>
+
+                                <!-- +/- -->
+                                <input style="width:8%" class="form-control arches-form-input hidden-xs" id="dating-value" placeholder="+/-" data-bind="{value: getEditedNode('CONVENTIONAL_RC_AGE_RANGE.E60', 'value')}">
+                                <input style="width:86.5%;display:inline-block;" class="form-control arches-form-input hidden-sm hidden-md hidden-lg" id="dating-value" placeholder="+/-" data-bind="{value: getEditedNode('CONVENTIONAL_RC_AGE_RANGE.E60', 'value')}">
+
+                                <span class=text-muted arches-crud-type-identifier">
+                                BP
+                                </span>
+
+							    <div style="line-height:30%;">
+								    <br>
+							    </div>
+								<div style="line-height:50%" class="hidden-sm hidden-md hidden-lg">
+									<br>
+								</div>
+
+                                <!-- Laboratory -->   
+                                <input style="width:30%; display:inline-block;" class="select2 arches-select2-crud-form name-type hidden-xs" id="select-laboratory" data-bind="select2: {value: getEditedNode('C14_LABORATORY.E55', 'value'),  placeholder: '{% trans "Laboratory" %}', dataKey: 'C14_LABORATORY.E55'}"></input>
+                                <input style="width:100%; display:inline-block;" class="select2 arches-select2-crud-form name-type hidden-sm hidden-md hidden-lg" id="select-laboratory" data-bind="select2: {value: getEditedNode('C14_LABORATORY.E55', 'value'),  placeholder: '{% trans "Laboratory" %}', dataKey: 'C14_LABORATORY.E55'}"></input>
+
+								<div style="line-height:30%" class="hidden-sm hidden-md hidden-lg">
+									<br>
+								</div>
+
+							    <input style="width:10%; display:inline-block;" class="form-control arches-form-input hidden" id="c14_lab_code" data-bind="{value: getEditedNode('C14_LAB_CODE.E42', 'value')}"></input>
+                                <span class="text-muted arches-crud-type-identifier" id="lab-code">
+                                    <span class="hidden-xs">
+                                        &nbsp;&nbsp;
+                                    </span>
+                                </span>							
+
+                                <!-- Sample Number -->
+                                <input class="form-control arches-form-input hidden-xs" id="dating-value" style="width: 20.5%;" placeholder="Sample Number" data-bind="{value: getEditedNode('C14_SAMPLE_NUMBER.E42', 'value')}">
+                                <input class="form-control arches-form-input hidden-sm hidden-md hidden-lg" id="dating-value" style="width: 70%;display:inline-block;" placeholder="Sample Number" data-bind="{value: getEditedNode('C14_SAMPLE_NUMBER.E42', 'value')}">
+
+								<div style="line-height:30%" class="hidden-sm hidden-md hidden-lg">
+									<br>
+								</div>
+
+                                <!-- Analysis Type -->     
+                                <input style="width:20%; display:inline-block;" class="select2 arches-select2-crud-form name-type hidden-xs" id="resource-dating-unit" data-bind="select2: {value: getEditedNode('ANALYSIS_TYPE.E55', 'value'), placeholder: '{% trans "Analysis Type" %}', dataKey: 'ANALYSIS_TYPE.E55'}"></input>
+                                <input style="width:86.5%; display:inline-block;" class="select2 arches-select2-crud-form name-type hidden-sm hidden-md hidden-lg" id="resource-dating-unit" data-bind="select2: {value: getEditedNode('ANALYSIS_TYPE.E55', 'value'), placeholder: '{% trans "Analysis Type" %}', dataKey: 'ANALYSIS_TYPE.E55'}"></input>
+
+								<div style="line-height:30%" class="hidden-sm hidden-md hidden-lg">
+									<br>
+								</div>
+
+                                <div style="float: right;" class="hidden-xs">                  
+                                    {% include 'views/components/add-item-button.htm' %}
+								</div>
+                                <div class="hidden-sm hidden-md hidden-lg">                  
+                                    {% include 'views/components/add-item-button.htm' %}
+								</div>
+
+                            </div>
+                        </div>
+                    </dd>
+                    <!-- End Form -->
+
+                    <div class="alert alert-danger branch-invalid-alert" role="alert" style="display:none;">{% trans "All C14 Dating values must be populated." %}</div>
+                </dl>
+
+            </div>
+        </div>
+    </div>
+    <!-- Name Records -->
+    <div class="row">
+        <div class="col-xs-12">
+
+            <!-- Address -->
+            <div class="arches-crud-child-section">
+                <dl>
+                    <dd class="arches-CRUD-child-title">
+                        {% trans "This watercraft has these C14 datings:" %}
+                    </dd>
+
+                    <dd class="margin-left-5" style="display: none;" data-bind="visible: true">
+                        <div data-bind="visible: getBranchLists().length == 0" class="txt-color-blue">{% trans "No C14 Datings Defined" %}</div>   
+                        
+                        <div data-bind='foreach: getBranchLists()'>
+                            <div class="arches-crud-record">
+                                <a href="javascript:void(0)" class="arches-CRUD-child" title="{% trans "Delete this dating" %}"><i data-bind='click: $parent.deleteItem.bind($parent)' class="arches-CRUD-delete fa fa-times-circle"></i></a>
+                                <a href="javascript:void(0)" class="arches-CRUD-child arches-CRUD-edit" data-bind='click: $parent.editItem.bind($parent)' title="Edit this dating">
+                                    <span data-bind='text: nodes.get("MEASURED_RC_AGE.E60", "value")' style="padding-right:2px;"></span>
+				                     ±
+				                    <span data-bind='text: nodes.get("MEASURED_RC_AGE_RANGE.E60", "value")' style="padding-right:2px;"></span>
+				                    BP
+				                    <span class="text-muted arches-crud-type-identifier"> ({% trans "Measured radiocarbon age" %}),</span>
+				    <br>
+                                    <span data-bind='text: nodes.get("C13_C12_RATIO.E60", "value") + "‰"' style="padding-right:2px;">
+                                    </span><span class="text-muted arches-crud-type-identifier"> ({% trans "C13/C12 ratio" %})</span>
+    			    <br>
+                                    <span data-bind='text: nodes.get("CONVENTIONAL_RC_AGE.E60", "value")' style="padding-right:2px;"></span>
+				                     ±
+				                    <span data-bind='text: nodes.get("CONVENTIONAL_RC_AGE_RANGE.E60", "value")' style="padding-right:2px;"></span>
+				                    BP
+				                    <span class="text-muted arches-crud-type-identifier"> ({% trans "Conventional radiocarbon age" %}),</span>
+        		    <br>
+                                    <span data-bind='text: nodes.get("C14_LABORATORY.E55", "label")' style="padding-right:2px;"></span>
+                                    <span class="text-muted arches-crud-type-identifier"> ({% trans "Laboratory" %}),</span>
+                                    <span data-bind='text:  nodes.get("C14_LAB_CODE.E42", "value") + "-" + nodes.get("C14_SAMPLE_NUMBER.E42", "value")' style="padding-right:2px;"></span>
+                                    <span class="text-muted arches-crud-type-identifier"> ({% trans "Sample number" %}),</span>
+                                    <span data-bind='text: nodes.get("ANALYSIS_TYPE.E55", "label")' style="padding-right:2px;"></span>
+                                    <span class="text-muted arches-crud-type-identifier"> ({% trans "Analysis type" %})</span>
+                                </a>
+                            </div>
+                        </div>
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Name Records -->
+{% endblock form_content %}

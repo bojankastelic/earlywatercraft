@@ -1,0 +1,22 @@
+{% load i18n %}
+{% if 'EXTERNAL_RESOURCE_E1' in report_info.source.graph %}
+    <div class="row">
+        <div class="col-xs-12">
+            <dl>
+                <dt>
+                    <h5 id="" class="arches-report-subsection-title">{% trans "Identificators" %}</h5>
+                </dt>
+                {% for EXTERNAL_RESOURCE_E1 in report_info.source.graph.EXTERNAL_RESOURCE_E1 %}
+                    {% for EXTERNAL_XREF_E42 in EXTERNAL_RESOURCE_E1.EXTERNAL_XREF_E42 %}
+                        <dd class="arches-report-subsection-item">
+                            {{ EXTERNAL_XREF_E42.EXTERNAL_XREF_E42__value }}
+                            <span class="arches-report-subsection-item-type">({{ EXTERNAL_XREF_E42.EXTERNAL_XREF_TYPE_E55__value }})</span>
+                            
+                        </dd>
+                    {% endfor %}
+                {% endfor %}            
+            </dl>
+        </div>
+    </div>
+{% endif %}
+

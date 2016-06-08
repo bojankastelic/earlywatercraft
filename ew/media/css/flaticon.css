@@ -1,0 +1,64 @@
+@font-face {
+	font-family: "Flaticon";
+	src: url("flaticon.eot");
+	src: url("flaticon.eot#iefix") format("embedded-opentype"),
+	url("flaticon.woff") format("woff"),
+	url("flaticon.ttf") format("truetype"),
+	url("flaticon.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+	font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}.flaticon-asian5:before {
+	content: "\e000";
+}
+.flaticon-boat54:before {
+	content: "\e001";
+}
+.flaticon-boat55:before {
+	content: "\e002";
+}
+.flaticon-canoes:before {
+	content: "\e003";
+}
+.flaticon-kayak1:before {
+	content: "\e004";
+}
+.flaticon-navigate:before {
+	content: "\e005";
+}
+.flaticon-navigation2:before {
+	content: "\e006";
+}
+.flaticon-navigation4:before {
+	content: "\e007";
+}
+.flaticon-port2:before {
+	content: "\e008";
+}
+.flaticon-sailing-boat2:before {
+	content: "\e009";
+}
+.flaticon-sailing7:before {
+	content: "\e00a";
+}
+.flaticon-transport248:before {
+	content: "\e00b";
+}
+.flaticon-transport250:before {
+	content: "\e00c";
+}
+.flaticon-transport251:before {
+	content: "\e00d";
+}
+.flaticon-transport257:before {
+	content: "\e00e";
+}
+.flaticon-transport261:before {
+	content: "\e00f";
+}

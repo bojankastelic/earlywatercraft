@@ -1,0 +1,57 @@
+{% load i18n %}
+{% if 'PRODUCTION_E12' in report_info.source.graph %}
+    {% for PRODUCTION_E12 in report_info.source.graph.PRODUCTION_E12 %}
+        {% if 'DATING_ASSIGNMENT_E17' in PRODUCTION_E12 %}
+            {% for DATING_ASSIGNMENT_E17 in PRODUCTION_E12.DATING_ASSIGNMENT_E17 %}
+                {% if 'DENDROCHRONOLOGICAL_DATING_ASSIGNMENT_E16' in DATING_ASSIGNMENT_E17 %}
+                    <div class="row">
+	                    <div class="col-xs-12">
+		                    <div class="">
+			                    <dl>
+			                    	<dt>
+			                            <h5 id="" class="arches-report-subsection-title">{% trans "Dendrochronological dating mesaurements" %}</h5>
+			                        </dt>
+			                        <dd>
+                                        {% for DENDROCHRONOLOGICAL_DATING_ASSIGNMENT_E16 in DATING_ASSIGNMENT_E17.DENDROCHRONOLOGICAL_DATING_ASSIGNMENT_E16 %}
+                                            <dl class="report-item-list">
+                                                <dd class="arches-report-subsection-item report-list-item">
+	                  	                            {% for YEAR_E60 in DENDROCHRONOLOGICAL_DATING_ASSIGNMENT_E16.YEAR_E60 %}
+                                                        {{YEAR_E60.YEAR_E60__value}} 
+                                                        {{YEAR_E60.YEAR_DATING_CONVENTION_E55__label}} 
+                                                        <span class="arches-report-subsection-item-type"> (Year)</span>
+	                                                {% endfor %}
+	                                            </dd>         
+                                                <dd class="arches-report-subsection-item report-list-item">
+				                                    {% for TVBP_E60 in DENDROCHRONOLOGICAL_DATING_ASSIGNMENT_E16.TVBP_E60 %}
+                                                        {{TVBP_E60.TVBP_E60__value}} <span class="arches-report-subsection-item-type"> (TVBP)</span>
+	                                                {% endfor %}
+				                                    {% for GLK_E60 in DENDROCHRONOLOGICAL_DATING_ASSIGNMENT_E16.GLK_E60 %}
+                                                        {{GLK_E60.GLK_E60__value}}% <span class="arches-report-subsection-item-type"> (GLK)</span>
+	                                                {% endfor %}
+				                                    {% for OVL_E60 in DENDROCHRONOLOGICAL_DATING_ASSIGNMENT_E16.OVL_E60 %}
+                                                        {{OVL_E60.OVL_E60__value}} <span class="arches-report-subsection-item-type"> (OVL)</span>
+	                                                {% endfor %}
+				                                </dd>         
+                                                <dd class="arches-report-subsection-item report-list-item">
+				                                    {% for DC_SAMPLE_NUMBER_E42 in DENDROCHRONOLOGICAL_DATING_ASSIGNMENT_E16.DC_SAMPLE_NUMBER_E42 %}
+                                                        {{DC_SAMPLE_NUMBER_E42.DC_SAMPLE_NUMBER_E42__value}} <span class="arches-report-subsection-item-type"> (Sample number)</span>
+	                                                {% endfor %}
+				                                    {% for NUM_OF_TREE_RINGS_E60 in DENDROCHRONOLOGICAL_DATING_ASSIGNMENT_E16.NUM_OF_TREE_RINGS_E60 %}
+                                                        {{NUM_OF_TREE_RINGS_E60.NUM_OF_TREE_RINGS_E60__value}} <span class="arches-report-subsection-item-type"> (Number of tree rings)</span>
+	                                                {% endfor %}
+				                                    {% for REFERENCE_CURVE_E42 in DENDROCHRONOLOGICAL_DATING_ASSIGNMENT_E16.REFERENCE_CURVE_E42 %}
+                                                        {{REFERENCE_CURVE_E42.REFERENCE_CURVE_E42__value}} <span class="arches-report-subsection-item-type"> (Reference curve)</span>
+	                                                {% endfor %}
+	                                            </dd>  
+	                                        </dl>       
+                                        {% endfor %}
+                                    </dd>
+			                    </dl>
+		                    </div>
+	                    </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+{% endif %}

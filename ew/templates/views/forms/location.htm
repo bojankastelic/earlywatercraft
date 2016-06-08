@@ -1,0 +1,648 @@
+{% extends "views/forms/base.htm" %}
+{% load i18n %}
+
+{% block form_content %}
+{% if resourcetypeid != 'ACTOR.E39' %}
+
+  	<div id="region-section">
+	    <!-- Address CRUD Form -->
+	    <div class="row">
+		<div class="col-xs-12">
+
+		    <!-- Address -->
+		    <div class="padding-left-10">
+		        <dl>
+
+		            <!-- Title -->
+		            <dt>
+		                <h5 id="arches-names-form" class="section-headline">{% trans 'Regions' %}</h5>
+		            </dt>
+
+		            <!-- Form -->
+                    <dd class="arches-RDM-labels hidden-xs">
+                        <div class="row">
+                            <div class="col-xs-12">
+		                        <!-- Form for screens > xs -->
+		                        <form class="form-inline arches-form hidden-xs" role="form">
+		                            <div class="form-group" style="width: 100%">
+										<!-- State -->
+										<input style="width:30%; height: 36px; padding-top: 2px;" class="select2 arches-select2-crud-form state" id="select-state" placeholder="State" data-bind="select2: {value: getEditedNode('STATE.E55', 'value'), placeholder: '{% trans "Country" %}', dataKey: 'STATE.E55'}">
+										</input>&nbsp;
+										<!-- State -->
+
+										<!-- Region -->
+										<input style="width:30%; height: 36px; padding-top: 2px;" class="select2 arches-select2-crud-form region" id="select-region" placeholder="Region" data-bind="select2: {value: getEditedNode('REGION.E55', 'value'), placeholder: '{% trans "Region" %}', dataKey: 'REGION.E55'}">
+										</input>
+										
+										<!-- Region -->
+
+		                            </div>
+		                        </form>
+		                        <!-- End Form for screens > xs -->
+		                    </div>
+		                </div>
+		            </dd>
+                    <dd class="arches-RDM-labels form-inline hidden-sm hidden-md hidden-lg">
+                        <div class="row">
+                            <div class="col-xs-12">
+
+		                        <!-- Form for screens = xs -->
+		                        <form class="form-inline arches-form hidden-sm hidden-md hidden-lg" role="form" style="margin-left: 0px">
+		                            <div class="form-group" style="width: 100%">
+										<!-- State -->
+		                                <input class="form-control" style="width: 100%; height: 32px;" id="select-state" placeholder="State" data-bind="select2: {value: getEditedNode('STATE.E55', 'value'), placeholder: '{% trans "Country" %}', dataKey: 'STATE.E55'}">
+										<!-- State -->
+
+		                                <!-- Spacer (for xs screens) -->
+		                                <div class="margin-top-5 hidden-sm hidden-md hidden-lg"></div>
+		                                
+		                                <!-- Region -->
+		                                <input style="width:100%; height: 36px; padding-top: 2px;" class="select2 arches-select2-crud-form address-type" id="select-region" placeholder="Region" data-bind="select2: {value: getEditedNode('REGION.E55', 'value'), placeholder: '{% trans "Region" %}', dataKey: 'REGION.E55'}">
+		                                <!-- Region -->
+
+		                                <!-- Spacer (for xs screens) -->
+		                                <div class="margin-top-5 hidden-sm hidden-md hidden-lg"></div>
+
+		                            </div>
+		                        </form>
+		                        <!-- End Form for screens = xs -->
+                                <div class="alert alert-danger branch-invalid-alert" role="alert" style="display:none;">{% trans "State and region must be specified." %}</div>
+
+		                    </div>
+		                </div>
+		            </dd>
+		            <!-- End Form -->
+		        </dl>
+		    </div>
+		    <!-- End Region CRUD Form -->
+		</div>
+	    </div>
+	    <!-- End Address CRUD Form COntainer -->
+
+	    <!-- End Region -->
+	</div>
+
+
+    <div id="geom-list-section">
+	<!-- Map -->
+        <div class="row margin-bottom-10">
+            <div class="col-xs-12">
+
+                <!-- Resource Mapped Locations -->
+                <div class="margin-bottom-10 padding-left-10">
+                    <dl>
+
+                        <!-- Title -->
+                        <dt>
+                            <h5 id="arches-names-form" class="section-headline">{% trans 'Mapped Locations' %}</h5>
+                        </dt>
+
+                        <!-- Map -->
+                        <div id="map" class="map arches-report-map margin-left-0 margin-top-10"></div>
+                        
+                        <!-- Geometry Type -->
+                        <div id="geometry-type" class="geometry-type" style="margin-top: -490px; margin-bottom: 463px; padding-right: 10px;">
+
+                            <div class="row">
+                                <div class="col-xs-6 col-xs-offset-6" data-bind="attr: { 'style': getEditedNode('SPATIAL_COORDINATES_GEOMETRY.E47', 'value')() === '' ? 'opacity:0;' : '' }">
+                                    <div class="form-group" style="width:100%;">       
+                                        <input class="geometry-selection" id="geometry-selection" name="" style="width:100%" data-bind="select2: {value: getEditedNode('GEOMETRY_QUALIFIER.E55', 'value'), placeholder: 'Type', dataKey: 'GEOMETRY_QUALIFIER.E55'}">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!-- End Geometry Type -->
+                          
+                    </dl>
+                </div>
+
+                <!-- Map Tools Panel -->
+                <div class="row">
+                    <div class="col-xs-4 col-xs-offset-1" style="">
+
+                        <div id="basemaps-panel" class="tools-panel hidden" style="margin-top: -490px; overflow-y: scroll; height: 435px;">
+                            <div class="modal-header arches-modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    ×
+                                </button>
+                                <h4 class="modal-title">
+                                    {% trans 'Basemaps' %}
+                                </h4>
+                            </div>
+
+                            <!-- Body Content -->
+                            <div class="modal-body padding-top-0 padding-bottom-0" data-bind='foreach: baseLayers'>
+
+                                <div class="row">
+                                    <hr class="arches-layer-divider" style="border-top: 0px; margin-top: 5px;" />
+
+                                    <div class="arches-basemap-entry" style="margin-right: 7px;">
+                                
+                                        <div>
+                                            <a data-bind="attr: { id: id, title: name }" class="basemap info-click" data-rel="" href="javascript:void(0);">
+                                                <span class="">  
+                                                    <img data-bind="attr: { src: icon }" class="arches-basemap-thumbnail" alt="" />
+                                                    <span class="zoom-icon"></span>                   
+                                                </span>                                              
+                                            </a>                    
+                                            <span class="arches-basemap-caption-search" style="width: 255px;">
+                                                <a data-bind="attr: { id: id }, text: name" class="caption-text-search hover-effect basemap info-click" href="javascript:void(0);"> </a>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- End Body Content -->
+
+                        </div>
+                    </div>
+                </div>
+                <!-- End Map Tools Panel -->
+
+                <!-- Overlays Panel -->
+                <div class="row">
+                    <div class="col-xs-4 col-xs-offset-1" style="">
+
+                        <div id="overlay-panel" class="tools-panel hidden" style="margin-top: -490px; overflow-y: scroll; overflow-x: hidden; height: 435px;">
+                            <div class="modal-header arches-modal-header">
+
+                                <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">
+                                    ×
+                                </button>
+
+                                <h4 class="modal-title">
+                                    {% trans 'Geometry Tools' %}
+                                </h4>
+                            </div>
+                
+                            <!-- Body Content -->
+                            <div class="modal-body padding-top-10 padding-bottom-0" style="padding-left: 5px; padding-right: 5px;">
+                                
+                                <!-- List overlays -->
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        
+                                        <dl>
+                                            
+                                            <dd class="">
+                                                <div class="arches-tool-item">
+                                                    
+                                                    <a href="javascript:void(0);" data-geometrytype="Point" class="arches-tool-text geometry-btn info-link" title="">
+                                                        <i class="fa fa-dot-circle-o"></i>
+                                                        {% trans 'Draw new point' %}
+                                                    </a>
+                                                </div>
+                                            </dd>
+
+                                            <dd class="">
+                                                <div class="arches-tool-item">
+                                                    
+                                                    <a href="javascript:void(0);" data-geometrytype="LineString" class="arches-tool-text geometry-btn info-link" title="">
+                                                        <i class="fa fa-minus"></i>
+                                                        {% trans 'Draw new line' %}
+                                                    </a>
+                                                </div>
+                                            </dd>
+
+                                            <dd class="">
+                                                <div class="arches-tool-item">
+                                                    
+                                                    <a href="javascript:void(0);" data-geometrytype="Polygon" class="arches-tool-text geometry-btn info-link" title="">
+                                                        <i class="fa fa-square-o"></i>
+                                                        {% trans 'Draw new polygon' %}
+                                                    </a>
+                                                </div>
+                                            </dd>
+
+                                            <dd class="">
+                                                <div class="arches-tool-item file-upload">
+                                                    
+                                                    <a href="javascript:void(0);" data-geometrytype="Polygon" class="arches-tool-text geometry-btn info-link" title="">
+                                                        <i class="fa fa-upload"></i>
+                                                        {% trans 'Add from gpx, kml, or geojson' %}
+                                                    </a>
+                                                    <input type="file" class="upload geom-upload" accept=".gpx, .kml, .geojson, .json"/>
+                                                </div>
+                                            </dd>
+
+                                            <dd class="geom-file-instructions">
+                                                {% trans '(or drag and drop the file onto the map)' %}
+                                            </dd>
+                                            
+                                        </dl>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Body Content -->
+
+                        </div>
+                    </div>
+                </div>
+                <!-- End Overlays Panel -->
+
+                <!-- Map Tools -->
+                <div class="row" style="height:0px;">
+
+                    <div class="btn-group" style="top:-100px;left:86px;">
+
+                        <button id="inventory-home" type="button" class="btn btn-primary arches-map-tools-pressed hidden" style="width: 50px; border: 1px solid rgba(206,217,233,.95);"><i class="fa fa-caret-down"></i>
+                        </button>
+
+                        <button id="inventory-basemaps" type="button" class="btn btn-primary arches-map-tools"><i class="fa fa-globe"></i> {% trans 'Basemaps' %}
+                        </button>
+
+                        <button id="inventory-overlays" type="button" class="btn btn-primary arches-map-tools"><i class="fa fa-plus"></i> {% trans 'Add Geometry' %}
+                        </button>
+
+                    </div>
+
+                </div>
+                <!-- End Map Tools -->
+
+            </div>
+        </div>
+
+        <!-- Geometry Records -->
+        <div class="row margin-bottom-10">
+            <div class="col-xs-12">
+
+                <!-- Geometries -->
+                <div class="arches-crud-child-section">
+                    <dl>
+                        <dd class="arches-CRUD-child-title">
+                            {% trans 'This resource is represented by the following geometries:' %}
+                        </dd>
+
+                        <div data-bind="visible: getBranchLists().length == 0" class="margin-left-5 txt-color-blue">{% trans "No geometries defined" %}</div>   
+
+                        <dd class="margin-left-5" data-bind='foreach: getBranchLists()'>
+                            <div class="arches-crud-record">
+                                <a href="#" class="arches-CRUD-child" title="Remove this geometry"><i data-bind="click: $parent.deleteItem.bind($parent)" class="arches-CRUD-delete fa fa-times-circle"></i></a>
+                                <a href="#" class="arches-CRUD-child" data-bind="click: $parent.editItem.bind($parent), text: nodes.get('SPATIAL_COORDINATES_GEOMETRY.E47', 'value').split('(')[0].toLowerCase(), attr: { 'style': editing() ? 'font-weight:bold;' : '' }" title="Edit this geometry"></a>&nbsp; <span class="text-muted arches-crud-type-identifier" data-bind="text: nodes.get('GEOMETRY_QUALIFIER.E55', 'label')"></span>
+                            </div>
+                        </dd>
+
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <!-- End Geometry Records -->
+    </div>
+
+{% if resourcetypeid == 'HERITAGE_RESOURCE.E18' or resourcetypeid == 'HERITAGE_RESOURCE_GROUP.E27' %}
+         
+    <hr class="devider arches-RDM-divider">
+
+	<div id="settlement-type-section">
+		<!-- Address CRUD Form -->
+		<div class="row">
+		    <div class="col-xs-12">
+
+		        <!-- Address -->
+		        <div class="padding-left-10">
+		            <dl>
+
+		                <!-- Title -->
+		                <dt>
+		                    <h5 id="arches-names-form" class="section-headline">{% trans 'Settlement type' %}</h5>
+		                </dt>
+
+		                <!-- Form -->
+		                <dd class="arches-RDM-labels">
+
+		                    <div class="row">
+
+		                        <!-- Form for Small, Md, Lg Screens -->
+		                        <div class="col-sm-12 padding-left-0">
+		                            
+		                            <!-- Form for screens > xs -->
+		                            <form class="form-inline arches-form hidden-xs" role="form">
+		                                <div class="form-group" style="width: 100%">
+		                                    <!-- Settlement Type -->
+		                                    <input style="width:50%; height: 36px; padding-top: 2px;" class="select2 arches-select2-crud-form settlement-type" placeholder="Settlement type" data-bind="select2: {value: getEditedNode('SETTLEMENT_TYPE.E55', 'value'), placeholder: 'Settlement type', dataKey: 'SETTLEMENT_TYPE.E55'}">
+		                                    <!-- Settlement Type -->
+		                                    
+		                                </div>
+		                            </form>
+		                            <!-- End Form for screens > xs -->
+
+		                            <!-- Form for screens = xs -->
+		                            <form class="form-inline arches-form hidden-sm hidden-md hidden-lg" role="form">
+		                                <div class="form-group" style="width: 100%">
+		                                    <!-- Settlement Type -->
+		                                    <input style="width:100%; height: 36px; padding-top: 2px;" class="select2 arches-select2-crud-form settlement-type" placeholder="type" data-bind="select2: {value: getEditedNode('SETTLEMENT_TYPE.E55', 'value'), placeholder: 'Type', dataKey: 'SETTLEMENT_TYPE.E55'}">
+		                                    <!-- Settlement Type -->
+
+		                                </div>
+		                            </form>
+		                            <!-- End Form for screens = xs -->
+                                    <div class="alert alert-danger branch-invalid-alert" role="alert" style="display:none;">{% trans "Settlement type must be specified." %}</div>
+
+		                        </div>
+		                    </div>
+		                </dd>
+		                <!-- End Form -->
+		            </dl>
+		        </div>
+		        <!-- End Address CRUD Form -->
+		    </div>
+		</div>
+		<!-- End Address CRUD Form COntainer -->
+	</div>
+
+	<hr class="devider arches-RDM-divider">
+	
+	<div id="context-section">
+		<!-- Address CRUD Form -->
+		<div class="row">
+		    <div class="col-xs-12">
+
+		        <!-- Address -->
+		        <div class="padding-left-10">
+		            <dl>
+
+		                <!-- Title -->
+		                <dt>
+		                    <h5 id="arches-names-form" class="section-headline">{% trans 'Context' %}</h5>
+		                </dt>
+
+		                <!-- Form -->
+		                <dd class="arches-RDM-labels">
+
+		                    <div class="row">
+
+		                        <!-- Form for Small, Md, Lg Screens -->
+		                        <div class="col-sm-12 padding-left-0">
+		                            
+		                            <!-- Form for screens > xs -->
+		                            <form class="form-inline arches-form hidden-xs" role="form">
+		                                <div class="form-group" style="width: 100%">
+		                                    <!-- Context -->
+		                                    <input style="width:50%; height: 36px; padding-top: 2px;" class="select2 arches-select2-crud-form settlement-type" placeholder="Context" data-bind="select2: {value: getEditedNode('CONTEXT.E55', 'value'), placeholder: 'Context', dataKey: 'CONTEXT.E55'}">
+		                                    <!-- Context -->
+		                                    
+		                                </div>
+		                            </form>
+		                            <!-- End Form for screens > xs -->
+
+		                            <!-- Form for screens = xs -->
+		                            <form class="form-inline arches-form hidden-sm hidden-md hidden-lg" role="form">
+		                                <div class="form-group" style="width: 100%">
+		                                    <!-- Context -->
+		                                    <input style="width:100%; height: 36px; padding-top: 2px;" class="select2 arches-select2-crud-form settlement-type" placeholder="Context" data-bind="select2: {value: getEditedNode('CONTEXT.E55', 'value'), placeholder: 'Context', dataKey: 'CONTEXT.E55'}">
+		                                    <!-- Context -->
+
+		                                </div>
+		                            </form>
+		                            <!-- End Form for screens = xs -->
+                                    <div class="alert alert-danger branch-invalid-alert" role="alert" style="display:none;">{% trans "Context must be specified." %}</div>
+
+		                        </div>
+		                    </div>
+		                </dd>
+		                <!-- End Form -->
+		            </dl>
+		        </div>
+		        <!-- End Address CRUD Form -->
+		    </div>
+		</div>
+		<!-- End Address CRUD Form COntainer -->
+
+	</div>
+
+	<hr class="devider arches-RDM-divider">
+
+{% endif %}
+
+{% endif %}
+
+<div id="address-section">
+    <!-- Address CRUD Form -->
+    <div class="row">
+        <div class="col-xs-12">
+
+            <!-- Address -->
+            <div class="padding-left-10">
+                <dl>
+
+                    <!-- Title -->
+                    <dt>
+                        <h5 id="arches-names-form" class="section-headline">{% trans 'Addresses' %}</h5>
+                    </dt>
+
+                    <!-- Form -->
+                    <dd class="arches-RDM-labels">
+
+                        <div class="row">
+
+                            <!-- Form for Small, Md, Lg Screens -->
+                            <div class="col-sm-12 padding-left-0">
+                                
+                                <!-- Form for screens > xs -->
+                                <form class="form-inline arches-form hidden-xs" role="form">
+                                    <div class="form-group" style="width: 100%">
+                                        <input class="form-control" style="width: 50%; height: 32px;" id="address" placeholder="Watercraft address" data-bind='value: getEditedNode("PLACE_ADDRESS.E45", "value")'>
+                                        
+                                        <!-- Address Type -->
+                                        <input style="width:30%; height: 36px; padding-top: 2px;" class="select2 arches-select2-crud-form address-type" placeholder="Type" data-bind="select2: {value: getEditedNode('ADDRESS_TYPE.E55', 'value'), placeholder: 'Type', dataKey: 'ADDRESS_TYPE.E55'}">
+                                        <!-- Address Type -->
+                                        
+                                        {% include 'views/components/add-item-button.htm' %}
+
+                                    </div>
+                                </form>
+                                <!-- End Form for screens > xs -->
+
+                                <!-- Form for screens = xs -->
+                                <form class="form-inline arches-form hidden-sm hidden-md hidden-lg" role="form">
+                                    <div class="form-group" style="width: 100%">
+                                        <input class="form-control" style="width: 100%; height: 32px;" id="address" placeholder="resource address" data-bind='value: getEditedNode("PLACE_ADDRESS.E45", "value")'>
+
+                                        <!-- Spacer (for xs screens) -->
+                                        <div class="margin-top-5 hidden-sm hidden-md hidden-lg"></div>
+                                        
+                                        <!-- Address Type -->
+                                        <input style="width:100%; height: 36px; padding-top: 2px;" class="select2 arches-select2-crud-form address-type" placeholder="type" data-bind="select2: {value: getEditedNode('ADDRESS_TYPE.E55', 'value'), placeholder: 'Type', dataKey: 'ADDRESS_TYPE.E55'}">
+                                        <!-- Address Type -->
+
+                                        <!-- Spacer (for xs screens) -->
+                                        <div class="margin-top-5 hidden-sm hidden-md hidden-lg"></div>
+                                        
+                                        {% include 'views/components/add-item-button.htm' %}
+
+                                    </div>
+                                </form>
+                                <!-- End Form for screens = xs -->
+                                <div class="alert alert-danger branch-invalid-alert" role="alert" style="display:none;">{% trans "Adress and Address type must be specified." %}</div>
+
+                            </div>
+                        </div>
+                    </dd>
+                    <!-- End Form -->
+                </dl>
+            </div>
+            <!-- End Address CRUD Form -->
+        </div>
+    </div>
+    <!-- End Address CRUD Form COntainer -->
+
+    <!-- Address Records -->
+    <div class="row">
+        <div class="col-xs-12">
+
+            <!-- Address -->
+            <div class="arches-crud-child-section">
+                <dl>
+                    <dd class="arches-CRUD-child-title">
+                        {% trans 'This resource has the following addresses:' %}
+                    </dd>
+                    <div data-bind="visible: getBranchLists().length == 0" class="margin-left-5 txt-color-blue">{% trans "No Addresses Defined" %}</div>   
+
+                    <div data-bind='foreach: getBranchLists()'>
+                        <dd class="margin-left-5">
+                            <div class="arches-crud-record">
+                                <a href="javascript:void(0);" class="arches-CRUD-child" title="Remove this relationship" data-bind="click: $parent.deleteItem.bind($parent)"><i class="arches-CRUD-delete fa fa-times-circle"></i></a>
+                                <a href="javascript:void(0);" class="arches-CRUD-child manage-address" title="Edit this address" data-bind="click: $parent.editItem.bind($parent), text: nodes.get('PLACE_ADDRESS.E45', 'value')"></a>&nbsp; <span class="text-muted arches-crud-type-identifier">(<span data-bind="text: nodes.get('ADDRESS_TYPE.E55', 'label')"></span>)</span>
+                            </div>
+                        </dd>
+                    </div>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+    <!-- End Address -->
+</div>
+
+<hr class="devider arches-RDM-divider">
+
+
+<!-- Location Description -->
+<div class="row margin-bottom-10" id="description-section">
+    <div class="col-xs-12">
+
+        <!-- Resource Location Descriptions -->
+        <div class="padding-left-10">
+            <dl>
+
+                <!-- Title -->
+                <dt>
+                    <h5 id="arches-names-form" class="section-headline">{% trans 'Location Description' %}</h5>
+                </dt>
+
+                <dd class="arches-RDM-labels">
+                    {% if user_can_edit_document %}
+                        <!-- Simple HTML Editor -->
+                        <div class="arches-html-editor">
+                            <div class="summernote" data-bind="summernote: {value: getEditedNode('DESCRIPTION_OF_LOCATION.E62', 'value'), options:{}}"></div>
+                        </div>
+                    {% endif %}
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+</div>
+<!-- End Resource Location Descriptions -->
+
+{% if resourcetypeid != 'ACTOR.E39' and resourcetypeid != 'ACTIVITY.E7' and resourcetypeid != 'HISTORICAL_EVENT.E5' %}
+    <hr class="devider arches-RDM-divider">
+
+    <div id="parcel-section">
+        <!-- Cadastral References CRUD -->
+        <div class="row margin-bottom-10">
+            <div class="col-xs-12">
+                
+                <!-- Cadastral References-->
+                <div class="padding-left-10">
+                    <dl>
+                        
+                        <!-- Title -->
+                        <dt>
+                            <h5 id="arches-names-form" class="section-headline">{% trans 'Cadastral References' %}</h5>
+                        </dt>
+                         
+                        <!-- Cadastral CRUD -->
+                        <dd class="arches-RDM-labels">
+                            <div class="row">
+
+                                <!-- APN Input -->
+                                <div class="col-sm-12 padding-left-0">
+                                    
+                                    <!-- Form for screens > xs -->
+                                    <form class="form-inline arches-form hidden-xs" role="form">
+                                        <div class="form-group margin-top-5" style="width: 100%">
+                                            
+                                            <input class="form-control arches-form-input" id="ad_apn" style="width: 30%;" placeholder="Parcel Number" data-bind='value: getEditedNode("PLACE_APPELLATION_CADASTRAL_REFERENCE.E44", "value")'>
+
+                                            {% include 'views/components/add-item-button.htm' %}
+
+                                        </div>
+                                    </form>
+                                    <!-- Form for screens > xs -->
+
+                                    <!-- Form for screens = xs -->
+                                    <form class="form-inline arches-form hidden-sm hidden-md hidden-lg" role="form">
+                                        <div class="form-group margin-top-5" style="width: 100%">
+                                            
+                                            <input class="form-control arches-form-input" id="ad_apn" style="width: 100%;" placeholder="Parcel Number" data-bind='value: getEditedNode("PLACE_APPELLATION_CADASTRAL_REFERENCE.E44", "value")'>
+
+                                            <!-- Spacer (for xs screens) -->
+                                            <div class="margin-top-5 hidden-sm hidden-md hidden-lg"></div>
+
+                                            {% include 'views/components/add-item-button.htm' %}
+
+                                        </div>
+                                    </form>
+                                    <!-- Form for screens = xs -->
+                                    <div class="alert alert-danger branch-invalid-alert" role="alert" style="display:none;">{% trans "Parcel number must be specified." %}</div>
+
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <!-- End Cadastral References CRUD -->
+
+        <!-- Cadastral Reference Records -->
+        <div class="row margin-bottom-10">
+            <div class="col-xs-12">
+                
+                <!-- Admin Areas -->
+                <div class="arches-crud-child-section">
+                    <dl>
+                        <dd class="arches-CRUD-child-title">
+                            This resource is related to the following Parcels:
+                        </dd>  
+
+                        <div data-bind="visible: getBranchLists().length == 0" class="margin-left-5 txt-color-blue">{% trans "No Parcels Defined" %}</div>   
+
+                        <div data-bind='foreach: getBranchLists()'>
+                            <dd class="margin-left-5">
+                                <div class="arches-crud-record">
+                                    <a href="#" class="arches-CRUD-child" title="Remove this relationship" data-bind="click: $parent.deleteItem.bind($parent)"><i class="arches-CRUD-delete fa fa-times-circle"></i></a>
+                                    <a href="#" class="arches-CRUD-child" title="Edit this area" data-bind="click: $parent.editItem.bind($parent), text: nodes.get('PLACE_APPELLATION_CADASTRAL_REFERENCE.E44', 'value')"></a>
+                                </div>
+                            </dd>
+                        </div>
+                        
+                    </dl>
+                </div>
+            </div>   
+        </div>
+        <!-- End Cadastral References Records-->
+    </div>
+    
+{% endif %}
+
+<div>
+    <input type="hidden" id="region_coordinates" value="{{region_coordinates}}"/>
+</div>
+
+{% endblock form_content %}

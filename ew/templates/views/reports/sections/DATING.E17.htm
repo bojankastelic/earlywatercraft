@@ -1,0 +1,54 @@
+{% load i18n %}
+{% if 'PRODUCTION_E12' in report_info.source.graph %}
+    {% for PRODUCTION_E12 in report_info.source.graph.PRODUCTION_E12 %}
+        {% if 'DATING_ASSIGNMENT_E17' in PRODUCTION_E12 %}
+            {% for DATING_ASSIGNMENT_E17 in PRODUCTION_E12.DATING_ASSIGNMENT_E17 %}
+                {% if 'HISTORICAL_PERIOD_E55' in DATING_ASSIGNMENT_E17 or 'KNOWN_DATE_E50' in DATING_ASSIGNMENT_E17 %}
+                    <div class="row">
+	                    <div class="col-xs-12">
+		                    <div class="">
+			                    <dl class="report-item-list">
+			                        <dt>
+			                            <h5 id="" class="arches-report-subsection-title">{% trans "Period" %}</h5>
+			                        </dt>
+                                    <dd class="arches-report-subsection-item report-list-item">
+                                    {% for HISTORICAL_PERIOD_E55 in DATING_ASSIGNMENT_E17.HISTORICAL_PERIOD_E55 %}
+                                        {{HISTORICAL_PERIOD_E55.HISTORICAL_PERIOD_E55__label}}
+                                    {% endfor %}
+                                    {% for KNOWN_DATE_E50 in DATING_ASSIGNMENT_E17.KNOWN_DATE_E50 %}
+                                        &nbsp; <span class="arches-report-subsection-item-type">(Known date: </span>{{KNOWN_DATE_E50.KNOWN_DATE_E50__value}}<span class="arches-report-subsection-item-type">)</span>
+                                    {% endfor %}
+                                    </dd>
+			                    </dl>
+		                    </div>
+	                    </div>
+                    </div>
+                {% endif %}
+                {% if 'DATE_E60' in DATING_ASSIGNMENT_E17 %}
+                    {% for DATE_E60 in DATING_ASSIGNMENT_E17.DATE_E60 %}
+	                    <div class="row">
+		                    <div class="col-xs-12">
+			                    <div class="">
+				                    <dl class="report-item-list">
+				                        <dt>
+				                            <h5 id="" class="arches-report-subsection-title">{% trans "Dendrochronological dating" %}</h5>
+				                        </dt>
+
+				                        <dd class="arches-report-subsection-item empty-message" style="display:none;">
+				                            {% trans "No date types recorded" %}
+				                        </dd>
+	                                    <dd class="arches-report-subsection-item report-list-item">
+	                                        {{DATE_E60.DATE_E60__value}} 
+	                                        {{DATE_E60.DATE_DATING_CONVENTION_E55__label}} 
+	                                        <span class="arches-report-subsection-item-type"> (Date)</span>
+	                                    </dd>
+				                    </dl>
+			                    </div>
+		                    </div>
+	                    </div>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+{% endif %}

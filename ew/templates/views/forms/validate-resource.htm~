@@ -1,0 +1,157 @@
+{% extends "views/forms/base.htm" %}
+{% load i18n %}
+
+{% block form_controls %}
+<!--  Buttons for small, medium and large screens -->
+<span class="pull-right margin-top-minus-10 hidden-xs">
+    {% if 'reject-approval' in actions %}
+    <!-- ; -->
+        <button id="btn-reject-approval" type='button' onclick="$('#inputRejectedDescription,.cancel-edits,.save-edits').removeClass('hidden');$('#btn-reject-approval').hide();$('#btn-publish').hide();$('#lastRejectedDescription').hide();" name="reject-approval1" class="status-reject btn btn-danger" title="{% trans 'Reject pending approval' %}"> 
+            <i class="fa fa-toggle-left"></i>&nbsp; {% trans 'Reject Approval' %}
+        </button>
+    {% endif %}
+    {% if 'return-to-draft' in actions %}
+    <button id="btn-return-to-draft" type="button" name="return-to-draft" class="status-draft btn btn-warning" onclick="$('#btn-return-to-draft').addClass('disabled');$('#action').val('return-to-draft')" title="{% trans 'Return document to Draft' %}"> 
+        <i class="fa fa-toggle-left"></i>&nbsp; {% trans 'Return to Draft' %}
+    </button>
+    {% endif %}
+    {% if 'ready-for-approval' in actions %}
+    <button id="btn-ready-for-approval" type="button" name="ready-for-approval" class="status-pending btn btn-success" onclick="$('#btn-ready-for-approval').addClass('disabled');$('.summernote').summernote('insertText','');$('#action').val('ready-for-approval')" title="{% trans 'Submit document for Approval' %}"> 
+        <i class="fa fa-toggle-right"></i>&nbsp; {% trans 'Ready for Approval' %}
+    </button>
+    {% endif %}
+    {% if 'publish' in actions %}
+        <button id="btn-publish" type="button" name="publish" class="status-publish btn btn-success" onclick="$('#btn-publish,#btn-reject-approval').addClass('disabled');$('#action').val('publish')" title="{% trans 'Publish Watercraft' %}"> 
+            <i class="fa fa-toggle-right"></i>&nbsp; {% trans 'Publish' %}
+        </button>
+    {% endif %}
+<!--        <button id="btn-send-mail" type="button" name="send-mail" class="send-mail btn btn-success" onclick="$('#action').val('send-mail')" title="{% trans 'Send mail' %}"> 
+            <i class="fa fa-toggle-right"></i>&nbsp; {% trans 'Send mail' %}
+        </button> -->
+    <!-- Save/Discard Buttons for small, medium and large screens -->
+        <button type="button" class="cancel-edits btn btn-danger disabled hidden" onclick="$('.cancel-edits,.save-edits').addClass('disabled');location.reload();"> 
+            <i class="fa fa-times"></i>&nbsp; {% trans 'Cancel rejection' %}
+        </button>
+        <button type="button" class="save-edits btn btn-success disabled hidden" onclick="$('#description').val($('.summernote').code());$('#action').val('reject-approval');"> 
+            <i class="fa fa-check"></i>&nbsp; {% trans 'Confirm Rejected approval' %}
+        </button>
+ 
+    <!-- Save/Discard Buttons for xs screens -->
+ <!--       <button type="button" class="cancel-edits btn btn-danger disabled"> 
+            <i class="fa fa-times"></i>&nbsp; {% trans 'Discard edits' %}
+        </button>
+        <button type="submit" class="save-edits btn btn-success disabled"> 
+            <i class="fa fa-check"></i>&nbsp; {% trans 'Save edits' %}
+        </button>
+    </span> -->
+<!--    {{ formdata }} -->
+</span>
+
+<!-- Save/Discard Buttons for xs screens -->
+<span class="hidden-sm hidden-md hidden-lg">
+    </br>
+    <button id="btn-reject-approval" type="submit" class="status-reject btn btn-danger hidden"> 
+        <i class="fa fa-times"></i>&nbsp; {% trans 'Reject Approval' %}
+    </button>
+    <button id="btn-return-to-draft" type="submit" class="status-draft btn btn-warning hidden"> 
+        <i class="fa fa-check"></i>&nbsp; {% trans 'Return to Draft' %}
+    </button>
+    <button id="btn-ready-for-aproval" type="button" class="status-pending btn btn-warning hidden"> 
+        <i class="fa fa-times"></i>&nbsp; {% trans 'Ready for Approval' %}
+    </button>
+    <button id="btn-publish" type="submit" class="status-publish btn btn-success hidden"> 
+        <i class="fa fa-check"></i>&nbsp; {% trans 'Publish' %}
+    </button>
+</span>
+{% endblock form_controls %}
+
+{% block form_content %}
+
+<div id="errors-section">
+    <!-- Status Records -->
+    <div class="row">
+        <div class="col-xs-12">
+
+            <!--  -->
+            {% if errors %}
+                <div class="alert alert-warning">
+                    <dl>
+                        <h5 id="arches-subjects-form" class="section-headline-to-be-removed bold">{% trans "Validation errors found:" %}</h5>
+                    </dl>
+                    <dl>
+					    {% regroup errors by form_id as grouped_errors %} 
+					    {% for group in grouped_errors %}
+			                <dt>
+			                    <h5 id="arches-subjects-form" class="section-headline">
+							    {% for form_group in form_groups %}
+	                            	{% for form in form_group.forms %}
+									    {% if form.id == group.grouper %}
+										    <span>{{ form.name }}</span>
+			                   	        {% endif %}
+	                           	    {% endfor %}
+	                     	    {% endfor %}
+							    </h5>
+			                </dt>
+						    {% for error in group.list %}
+			                    <div>
+								    <i {% if error.type = 'error' %} 
+									      class = "fa fa-minus-circle color-red" title={% trans "Error" %}
+					                   {% endif %} 
+					                   {% if error.type = 'warning' %} 
+									      class = "fa fa-warning color-yellow" title = {% trans "Warning" %}
+					                   {% endif %}>
+					                </i>
+								    <a href="{% url 'resource_manager' resourcetypeid error.form_id resourceid %}" 
+					                   class="arches-CRUD-child arches-CRUD-edit" 
+								       title="{% trans 'Open related section' %}">
+									    <span class="bold">{{ error.data_group }}</span> - <span>{{ error.description }}</span>
+					                </a>
+			                    </div>
+			                {% endfor %}              
+		                {% endfor %}              
+                    </dl>
+                </div>
+            {% else %}
+                <div class="alert alert-success">
+                    <dl>
+                        <h5 id="arches-subjects-form" class="section-headline bold" style="vertical-align: middle;">{% trans "No validation errors found." %}</h5>
+                    </dl>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+    <!-- End Name Records -->
+</div>
+<div id="description-section">
+    <div class="arches-html-editor margin-top-5 hidden" id="inputRejectedDescription" style="width: 80%;">
+        <dl>
+            <dd class="arches-CRUD-child-title">
+                Please enter the reason for approval rejection:
+            </dd>  
+            <dd class="margin-left-5">
+               <div class="summernote" id="rejectedDescription" data-bind="summernote: {value: getEditedNode('EW_REJECT_DESCRIPTION.E62', 'value'), options:{}}"></div>
+            </dd>
+        </dl>
+    </div>
+    <!-- Admin Areas -->
+    <div id="lastRejectedDescription" class="hidden">
+        <dl>
+            <div data-bind='foreach: getBranchLists()'>
+                <div data-bind="visible: nodes.get('EW_REJECT_DESCRIPTION.E62', 'value') != ''" class="arches-CRUD-child-title">
+                    <dd class="arches-CRUD-child-title">
+                       <h5 class="section-headline">Reason for last approval rejection:</h5>
+                    </dd>  
+                    <dd class="note-editable custom-scroll arches-evaluation-content">
+                        <div data-bind="html: nodes.get('EW_REJECT_DESCRIPTION.E62', 'value')"></div>
+                    </dd>
+                </div>
+            </div>   
+            
+        </dl>
+    </div>
+</div>
+<div>
+    <input id="action" name="action" type="hidden" value=""/>
+    <input id="description" name="description" type="hidden" value=""/></div>
+{% endblock form_content %}

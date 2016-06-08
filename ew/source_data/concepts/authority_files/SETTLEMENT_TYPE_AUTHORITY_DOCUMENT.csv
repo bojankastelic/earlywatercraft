@@ -1,0 +1,5 @@
+"conceptid","PrefLabel","AltLabels","ParentConceptid","ConceptType","Provider"
+"SETTLEMENT_TYPE:1","Underwater","","SETTLEMENT_TYPE_AUTHORITY_DOCUMENT.csv","Index","SurveyLA"
+"SETTLEMENT_TYPE:2","Dry land","","SETTLEMENT_TYPE_AUTHORITY_DOCUMENT.csv","Index","SurveyLA"
+"SETTLEMENT_TYPE:3","Marches","","SETTLEMENT_TYPE_AUTHORITY_DOCUMENT.csv","Index","SurveyLA"
+

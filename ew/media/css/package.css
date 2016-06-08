@@ -1,0 +1,54 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext:300,400);
+
+h1, h2, h3, h4, h5, h6 {
+  color: #585f69;    
+  margin-top: 5px;
+  text-shadow: none; 
+  font-weight: normal; 
+  font-family: 'Open Sans', sans-serif;
+} 
+
+.color-yellow { color: #f1c40f;}
+
+/*put package specific styles here...*/
+.section-headline-to-be-removed {
+    color: #c86973;    
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.arches-report-subsection-title-item {
+	font-size: 18px;
+	font-weight: 200;
+	color: #4765a0;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+.ew-logo {
+    height: 64px;
+    margin-top: -23px;
+}
+
+.topbar ul.loginbar > li > span {
+    color: #7c8082;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+/*
+.map-space-panel {
+    width: 100%; 
+    min-height: 650px;
+    height:100%;
+    margin-left: 0%;
+}
+
+.map-space {
+    min-height: 650px;
+    height:100%;
+}
+
+Ne dela ok, ker se header prestavlja nižje, poleg tega pa se tudi preveč poveča!!!
+*/

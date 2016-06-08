@@ -1,0 +1,73 @@
+{% load i18n %}
+{% if 'PRODUCTION_E12' in report_info.source.graph %}
+    {% for PRODUCTION_E12 in report_info.source.graph.PRODUCTION_E12 %}
+        {% if 'DATING_ASSIGNMENT_E17' in PRODUCTION_E12 %}
+            {% for DATING_ASSIGNMENT_E17 in PRODUCTION_E12.DATING_ASSIGNMENT_E17 %}
+                {% if 'C14_DATING_ASSIGNMENT_E16' in DATING_ASSIGNMENT_E17 %}
+                    <div class="row">
+	                    <div class="col-xs-12">
+		                    <div class="">
+			                    <dl>
+			                    	<dt>
+			                            <h5 id="" class="arches-report-subsection-title">{% trans "C14 Dating" %}</h5>
+			                        </dt>
+			                        <dd>
+                                        {% for C14_DATING_ASSIGNMENT_E16 in DATING_ASSIGNMENT_E17.C14_DATING_ASSIGNMENT_E16 %}
+                                            <dl class="report-item-list">
+                                                {% if 'MEASURED_RC_AGE_E60' in C14_DATING_ASSIGNMENT_E16 %}
+                                                    <dd class="arches-report-subsection-item report-list-item">
+	                      	                            {% for MEASURED_RC_AGE_E60 in C14_DATING_ASSIGNMENT_E16.MEASURED_RC_AGE_E60 %}
+                                                            {{MEASURED_RC_AGE_E60.MEASURED_RC_AGE_E60__value}}
+	                                                    {% endfor %}
+	                                                    ±
+	                      	                            {% for MEASURED_RC_AGE_RANGE_E60 in C14_DATING_ASSIGNMENT_E16.MEASURED_RC_AGE_E60 %}
+                                                            {{MEASURED_RC_AGE_RANGE_E60.MEASURED_RC_AGE_RANGE_E60__value}} BP
+	                                                    {% endfor %}
+	                                                    <span class="arches-report-subsection-item-type"> (Measured radiocarbon age)</span>
+	                                                </dd>
+	                                            {% endif %}          
+                                                {% if 'C13_C12_RATIO_E60' in C14_DATING_ASSIGNMENT_E16 %}
+                                                    <dd class="arches-report-subsection-item report-list-item">
+				                                        {% for C13_C12_RATIO_E60 in C14_DATING_ASSIGNMENT_E16.C13_C12_RATIO_E60 %}
+                                                            {{C13_C12_RATIO_E60.C13_C12_RATIO_E60__value}}‰ <span class="arches-report-subsection-item-type"> (C13/C12 ratio)</span>
+	                                                    {% endfor %}
+				                                    </dd>         
+                                                {% endif %}          
+                                                {% if 'CONVENTIONAL_RC_AGE_E60' in C14_DATING_ASSIGNMENT_E16 %}
+                                                    <dd class="arches-report-subsection-item report-list-item">
+	                      	                            {% for CONVENTIONAL_RC_AGE_E60 in C14_DATING_ASSIGNMENT_E16.CONVENTIONAL_RC_AGE_E60 %}
+                                                            {{CONVENTIONAL_RC_AGE_E60.CONVENTIONAL_RC_AGE_E60__value}}
+	                                                    {% endfor %}
+	                                                    ±
+	                      	                            {% for CONVENTIONAL_RC_AGE_RANGE_E60 in C14_DATING_ASSIGNMENT_E16.CONVENTIONAL_RC_AGE_E60 %}
+                                                            {{CONVENTIONAL_RC_AGE_RANGE_E60.CONVENTIONAL_RC_AGE_RANGE_E60__value}} BP
+	                                                    {% endfor %}
+	                                                    <span class="arches-report-subsection-item-type"> (Conventional radiocarbon age)</span>
+	                                                </dd>
+	                                            {% endif %}         
+                                                <dd class="arches-report-subsection-item report-list-item">
+				                                    {% for C14_LABORATORY_E55 in C14_DATING_ASSIGNMENT_E16.C14_LABORATORY_E55 %}
+                                                        {{C14_LABORATORY_E55.C14_LABORATORY_E55__label}} <span class="arches-report-subsection-item-type"> (Laboratory)</span>
+	                                                {% endfor %}
+				                                    {% for C14_LAB_CODE_E42 in C14_DATING_ASSIGNMENT_E16.C14_LABORATORY_E55 %}
+                                                        {{C14_LAB_CODE_E42.C14_LAB_CODE_E42__value}} -
+	                                                {% endfor %}
+				                                    {% for C14_SAMPLE_NUMBER_E42 in C14_DATING_ASSIGNMENT_E16.C14_LABORATORY_E55 %}
+                                                        {{C14_SAMPLE_NUMBER_E42.C14_SAMPLE_NUMBER_E42__value}} <span class="arches-report-subsection-item-type"> (Sample number)</span>
+	                                                {% endfor %}
+				                                    {% for ANALYSIS_TYPE_E55 in C14_DATING_ASSIGNMENT_E16.ANALYSIS_TYPE_E55 %}
+                                                        {{ANALYSIS_TYPE_E55.ANALYSIS_TYPE_E55__label}} <span class="arches-report-subsection-item-type"> (Analysis type)</span>
+	                                                {% endfor %}
+	                                            </dd> 
+	                                        </dl>         
+                                        {% endfor %}
+                                    </dd>
+			                    </dl>
+		                    </div>
+	                    </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+{% endif %}

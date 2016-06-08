@@ -1,0 +1,74 @@
+{% load i18n %}
+<form method="POST" id="resource_data_management_form" class="form-inline arches-form" role="form" enctype="multipart/form-data">
+    <div class="right-inner arches-box-grey-border padding-10" id="crud" style="">
+        <div class="form-load-mask"><i class="fa fa-spinner fa-spin"></i></div>
+                
+        <!-- Theme Title -->
+        <div class="row">
+            <div class="col-xs-12">
+                
+                <div class="headline margin-bottom-10 padding-left-10">
+                    <h3 class="headline text-primary"><i class="fa {{form.icon}} text-primary"></i>{{form.name}}</h3>
+
+                    <!-- Save/Discard Buttons for small, medium and large screens -->
+                    <span class="pull-right margin-top-minus-10">
+                        
+                        <button class="btn btn-primary" id="start-workflow"> 
+                            <i class="fa fa-plus"></i>&nbsp; {% trans "Add" %}
+                        </button>
+
+                        <!-- Spacer (for xs screens) -->
+                        <div class="hidden-sm hidden-md hidden-lg" style="margin-top: 45px;"></div>
+
+                        <button class="btn btn-danger" id="cancel-workflow" style="display: none;"> 
+                            <i class="fa fa-times"></i>&nbsp; {% trans "Cancel" %}
+                        </button>
+                        
+                        <button class="btn btn-success" id="end-workflow" style="display: none;"> 
+                            <i class="fa fa-check"></i>&nbsp; {% trans "Save" %}
+                        </button>
+
+                    </span>
+
+                </div>
+            </div>
+        </div>
+        <!-- End Theme Title -->
+        
+        <!-- Error records for selected group -->
+        {% regroup errors by form_id as grouped_errors %} 
+        {% for group in grouped_errors %}
+            {% if form_id = group.grouper %}
+                <div class="alert alert-warning">
+                    <dl>
+                        <h5 id="arches-subjects-form" class="section-headline-to-be-removed bold">{% trans "Validation errors found:" %}</h5>
+                    <dl>
+                    <dl>
+	                    {% for error in group.list %}
+                            <div>
+			                    <i {% if error.type = 'error' %} 
+				                      class = "fa fa-minus-circle color-red" title={% trans "Error" %}
+                                   {% endif %} 
+                                   {% if error.type = 'warning' %} 
+				                      class = "fa fa-warning color-yellow" title={% trans "Warning" %}
+                                   {% endif %}>
+                                </i>
+			                    <a href="{% url 'resource_manager' resourcetypeid error.form_id resourceid %}" 
+                                   class="arches-CRUD-child arches-CRUD-edit" 
+			                       title="{% trans 'Open related section' %}">
+				                    <span class="bold">{{ error.data_group }}</span> - <span>{{ error.description }}</span>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </dl>
+                </div>
+            {% endif %}              
+        {% endfor %}  
+        
+        {% block form_content %}
+        {% endblock form_content %}
+
+        <input id="formdata" name="formdata" type="hidden" value="{{formdata}}"/>
+        <input type="hidden" id="user_can_edit_document" value="{{user_can_edit_document}}"}
+    </div>
+</form>

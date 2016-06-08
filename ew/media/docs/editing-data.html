@@ -1,0 +1,621 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Editing data &mdash; Early Watercraft 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Early Watercraft 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Advanced" href="advanced.html"/>
+        <link rel="prev" title="Browsing published data" href="browsing-data.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Early Watercraft
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#what-is-early-watercraft">What is Early Watercraft?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#project-s-background">Project&#8217;s background</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="browsing-data.html">Browsing published data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="browsing-data.html#search">Search</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="browsing-data.html#popular-searches">Popular searches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="browsing-data.html#custom-search">Custom search</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="browsing-data.html#location-filter">Location filter</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="browsing-data.html#search-results">Search results</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="browsing-data.html#export-results">Export results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="browsing-data.html#map-view">Map view</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="browsing-data.html#icon-types">Icon types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="browsing-data.html#colors">Colors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="browsing-data.html#report">Report</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Editing data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#watercraft-manager">Watercraft Manager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-editing-rules">Basic editing rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sidebar-menu">Sidebar menu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resource-types">Resource types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#authorization">Authorization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#list-of-all-authorization-groups">List of all authorization groups</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ownership-groups">Ownership groups</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#current-ownership-groups">Current ownership groups</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#publishing-workflow">Publishing workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workflow-diagram">Workflow diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resource-statuses">Resource statuses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-validation">Data validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#map-icons">Map icons</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#rdm-reference-data-manager">RDM (Reference Data Manager)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#user-administration">User administration</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Early Watercraft</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Editing data</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/editing-data.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="editing-data">
+<h1>Editing data<a class="headerlink" href="#editing-data" title="Permalink to this headline">¶</a></h1>
+<p>Only authenticated users will be allowed to edit data. When a user has been authenticated,
+additional features for editing and publishing resources are enabled in the application.</p>
+<blockquote>
+<div></div></blockquote>
+<div class="section" id="watercraft-manager">
+<span id="ref-watercraft-manager"></span><h2>Watercraft Manager<a class="headerlink" href="#watercraft-manager" title="Permalink to this headline">¶</a></h2>
+<p>Watercraft Manager is the starting point for all editing. The top menu (Watercraft Manager)
+offers creation of all types of resources to which the individual user has been assigned
+permissions. Each type of the resource has its own data groups; the following options are
+common for all resource types:</p>
+<div class="section" id="basic-editing-rules">
+<h3>Basic editing rules<a class="headerlink" href="#basic-editing-rules" title="Permalink to this headline">¶</a></h3>
+<p>All resources are edited within Watercraft manager the same way. Data are divided in content
+groups and each group has one or more data fields for editing. When more than one record of
+some data (multi-line edit) is possible, the data must be added to the list below the
+selected data group using the &#8216;Add&#8217; button.</p>
+<img alt="_images/multi-line-edit.png" src="_images/multi-line-edit.png" />
+<p>When there is only one possible entry for the given data (single-line edit), data entry is
+accepted automatically.</p>
+<img alt="_images/single-line-edit.png" src="_images/single-line-edit.png" />
+<p>Either way, to save data to the database, the entered data must be confirmed using the
+‘Save edits’ button in the upper right corner. To discard changes, use ‘Discard edits’ button.</p>
+<p>Basic validation rules for current data group are applied before saving data. Resource-level data validation
+is applied through <a class="reference internal" href="#ref-data-validation"><span>Data validation</span></a> before proceeding to the next status.</p>
+</div>
+<div class="section" id="sidebar-menu">
+<h3>Sidebar menu<a class="headerlink" href="#sidebar-menu" title="Permalink to this headline">¶</a></h3>
+<p>The sidebar menu offers navigation among data groups for the current resource. When a
+resource has been saved to database, the sidebar group provides an additional ‘Manage
+resource’ subgroup, which offers additional options.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Validate resource</td>
+<td>Validate the resource for the next status (<a class="reference internal" href="#ref-data-validation"><span>Data validation</span></a>).</td>
+</tr>
+<tr class="row-odd"><td>Review Edit History</td>
+<td>Show resource history (who and when has modified which data).</td>
+</tr>
+<tr class="row-even"><td>Delete resource</td>
+<td>Delete resource (accessible only for &#8216;Draft&#8217; status).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="resource-types">
+<h3>Resource types<a class="headerlink" href="#resource-types" title="Permalink to this headline">¶</a></h3>
+<p>There are six types of resources:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Resource Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Early Watercraft</td>
+<td>The main type, comprising all detailed data for Early Watercraft.</td>
+</tr>
+<tr class="row-odd"><td>Early Watercraft Group</td>
+<td>A resource for grouping similar items of Early Watercraft.</td>
+</tr>
+<tr class="row-even"><td>Activity</td>
+<td>Activities recorded in relation to Early Watercraft.</td>
+</tr>
+<tr class="row-odd"><td>Early Watercraft Event</td>
+<td>Events recorded in relation to Early Watercraft.</td>
+</tr>
+<tr class="row-even"><td>Person/Organization</td>
+<td>Persons and/or organizations, related to Early Watercraft.</td>
+</tr>
+<tr class="row-odd"><td>Information Resource</td>
+<td>Documents, images, 3D models, files, etc. related to Early Watercraft.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Currently, only  PLY, STL and OBJ file formats are supported in Online view of 3D models. The PLY format must first be converted to a multi-resolution format (NXS), meaning that it can take from a few seconds to a few minutes (depending on its size) before a model can be shown in the report.</p>
+</div>
+<p>To create a new resource, the top menu (Watercraft Manager) offers only resources to which
+user has editing permissions. For the existing resources, the ‘Edit’ button is shown only
+if the user has appropriate permissions.</p>
+</div>
+</div>
+<div class="section" id="authorization">
+<h2>Authorization<a class="headerlink" href="#authorization" title="Permalink to this headline">¶</a></h2>
+<p>To edit resource data, the user must be assigned to at least one authorization group.</p>
+<dl class="docutils">
+<dt>Two group types exist for each resource type:</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>EDIT_(Resource_Type): edit permissions for (Resource Type)</dt>
+<dd><ul class="first last simple">
+<li>create new resource (in &#8216;Draft&#8217; status)</li>
+<li>edit own resources in &#8216;Draft&#8217; status</li>
+<li>delete own resources in &#8216;Draft&#8217; status</li>
+<li>validate and prepare data for Approval</li>
+<li>return a resource from status &#8216;Approval rejected&#8217; to &#8216;Draft&#8217;</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>PUBLISH_(Resource_Type): publish permissions for (Resource Type)</dt>
+<dd><ul class="first last simple">
+<li>all edit permissions</li>
+<li>publish resource</li>
+<li>reject resource, pending for approval</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="list-of-all-authorization-groups">
+<h3>List of all authorization groups<a class="headerlink" href="#list-of-all-authorization-groups" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Authorization group</th>
+<th class="head">Permissions</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>EDIT_HERITAGE_RESOURCE.E18</td>
+<td>Edit permissions for Early Watercraft</td>
+</tr>
+<tr class="row-odd"><td>EDIT_HERITAGE_RESOURCE_GROUP.E27</td>
+<td>Edit permissions for Early Watercraft Group</td>
+</tr>
+<tr class="row-even"><td>EDIT_ACTIVITY.E7</td>
+<td>Edit permissions for Activity</td>
+</tr>
+<tr class="row-odd"><td>EDIT_HISTORICAL_EVENT.E5</td>
+<td>Edit permissions for Early Watercraft Event</td>
+</tr>
+<tr class="row-even"><td>EDIT_ACTOR.E39</td>
+<td>Edit permissions for Person/Organization</td>
+</tr>
+<tr class="row-odd"><td>EDIT_INFORMATION_RESOURCE.E73</td>
+<td>Edit permissions for Information Resource</td>
+</tr>
+<tr class="row-even"><td>PUBLISH_HERITAGE_RESOURCE.E18</td>
+<td>Publish permissions for Early Watercraft</td>
+</tr>
+<tr class="row-odd"><td>PUBLISH_HERITAGE_RESOURCE_GROUP.E27</td>
+<td>Publish permissions for Early Watercraft Group</td>
+</tr>
+<tr class="row-even"><td>PUBLISH_ACTIVITY.E7</td>
+<td>Publish permissions for Activity</td>
+</tr>
+<tr class="row-odd"><td>PUBLISH_HISTORICAL_EVENT.E5</td>
+<td>Publish permissions for Early Watercraft Event</td>
+</tr>
+<tr class="row-even"><td>PUBLISH_ACTOR.E39</td>
+<td>Publish permissions for Person/Organization</td>
+</tr>
+<tr class="row-odd"><td>PUBLISH_INFORMATION_RESOURCE.E73</td>
+<td>Publish permissions for Information Resource</td>
+</tr>
+<tr class="row-even"><td>RDM</td>
+<td>View and edit Reference Data Manager</td>
+</tr>
+</tbody>
+</table>
+<p>There are two additional authorization levels for administrative purposes in addition to
+the above-listed authorization groups.</p>
+<dl class="docutils">
+<dt>These are:</dt>
+<dd><ul class="first last simple">
+<li>Staff status: users can log in to admin site and manage users</li>
+<li>Superuser status: users have all permissions without explicitly assigning them</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="ownership-groups">
+<span id="ref-ownership-groups"></span><h2>Ownership groups<a class="headerlink" href="#ownership-groups" title="Permalink to this headline">¶</a></h2>
+<p>Every authenticated user, which edits resources, must be member of one (and only one)
+ownership group. The user is only allowed to edit and process data from the ownership
+group to which the user is allocated (all other resources are locked for editing).</p>
+<p>Any name with ‘OWNERSHIP’ prefix can serve as the name of the ownership group.
+Every newly created resource gets the name of the ownership group of the author
+(i.e. of the user who created it). From this moment on, only members of this group are
+authorized to edit this resource.</p>
+<div class="section" id="current-ownership-groups">
+<h3>Current ownership groups<a class="headerlink" href="#current-ownership-groups" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Ownership group</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Description</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>OWNERSHIP_SLOVENIA_IPCHS</td>
+<td><div class="first last line-block">
+<div class="line">Institute for the Protection of Cultural Heritage of</div>
+<div class="line">Slovenia</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Currently, Early Watercraft has only one ownership group (for this project) since there is no need for more. However, the application can support any number of ownership groups.</p>
+</div>
+</div>
+</div>
+<div class="section" id="publishing-workflow">
+<span id="ref-publishing-workflow"></span><h2>Publishing workflow<a class="headerlink" href="#publishing-workflow" title="Permalink to this headline">¶</a></h2>
+<p>Early Watercraft resources are visible to public (unauthenticated) users only after they
+have been published. To publish a resource, a user has to fill in all required data and
+send the resource to the user with publishing permissions, who in turn approves the
+resource to be published. The publisher (i.e. the user with publishing permissions) can
+then either approve (publish) the resource or reject the approval. All possible process
+options are shown in a workflow diagram below.</p>
+<div class="section" id="workflow-diagram">
+<h3>Workflow diagram<a class="headerlink" href="#workflow-diagram" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><img alt="_images/workflow-diagram.png" src="_images/workflow-diagram.png" />
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Mails are only sent to others (no mail is sent if the current user is the intended recipient).</p>
+</div>
+</div>
+<div class="section" id="resource-statuses">
+<h3>Resource statuses<a class="headerlink" href="#resource-statuses" title="Permalink to this headline">¶</a></h3>
+<p>Resource status is shown only to authenticated users (all other users see only the
+published resources). The status is shown in parenthesis after the resource type (in
+resource header, resource list, report, etc).</p>
+<blockquote>
+<div><img alt="_images/resource-status.png" src="_images/resource-status.png" />
+</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Status</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Description</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Draft</td>
+<td><div class="first last line-block">
+<div class="line">Initial status:</div>
+<div class="line">- only status where &#8216;Editor&#8217; can modify data</div>
+<div class="line">- only status where resource can be deleted</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>Pending approval</td>
+<td><div class="first last line-block">
+<div class="line">When &#8216;Editor&#8217; (the user who created the resource) fills in all</div>
+<div class="line">required data, a &#8216;Publisher&#8217; (i.e. the user with publisher</div>
+<div class="line">permissions) can:</div>
+<div class="line">- modify existing data</div>
+<div class="line">- publish a resource</div>
+<div class="line">- reject approval (explanation required)</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>Published</td>
+<td><div class="first last line-block">
+<div class="line">The resource is visible to public (unauthenticated) users.</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>Approval rejected</td>
+<td><div class="first last line-block">
+<div class="line">An &#8216;Editor&#8217; can return resource to a &#8216;Draft&#8217; status and repeat the</div>
+<div class="line">publishing process.</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div></div></blockquote>
+</div>
+<div class="section" id="data-validation">
+<span id="ref-data-validation"></span><h3>Data validation<a class="headerlink" href="#data-validation" title="Permalink to this headline">¶</a></h3>
+<p>Resource can be processed to the next status only when all conditions are met. Each resource
+has its own validation rules for each status. To check if all condition are met, the user
+needs to select &#8216;Validate resource&#8217; in the sidebar menu.</p>
+<p>When the application finds missing data, unique records, etc. the user has to amend
+all errors to continue processing the resource to the next status.</p>
+<blockquote>
+<div></div></blockquote>
+<p>There are two types of data validation errors:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="10%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Icon</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><img alt="error" src="_images/validation-error.png" /></td>
+<td>Error</td>
+<td>The user has to correct an error to continue to the next status.</td>
+</tr>
+<tr class="row-odd"><td><img alt="warning" src="_images/validation-warning.png" /></td>
+<td>Warning</td>
+<td>The user can continue to the next status.</td>
+</tr>
+</tbody>
+</table>
+<p>For each validation error there is a link to the data group where the user is able to
+correct an error. Each data group with errors is also marked using an exclamation mark in
+sidebar menu.</p>
+<blockquote>
+<div><img alt="_images/validation-errors.png" src="_images/validation-errors.png" />
+</div></blockquote>
+<p>When all conditions are met, a button for the next status is enabled.</p>
+<blockquote>
+<div><img alt="_images/validation-ok.png" src="_images/validation-ok.png" />
+</div></blockquote>
+</div>
+<div class="section" id="map-icons">
+<h3>Map icons<a class="headerlink" href="#map-icons" title="Permalink to this headline">¶</a></h3>
+<p>While a document is in processing (not published yet), its icon has an additional marker
+in upper left corner, indicating its current status.</p>
+<blockquote>
+<div></div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="53%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Status marker</th>
+<th class="head">Status</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="_images/status-draft.png"><img alt="draft" src="_images/status-draft.png" style="width: 16px; height: 16px;" /></a></td>
+<td>Draft</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="_images/status-pending-approval.png"><img alt="pending_approval" src="_images/status-pending-approval.png" style="width: 16px; height: 16px;" /></a></td>
+<td>Pending approval</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="_images/status-approval-rejected.png"><img alt="approval_rejected" src="_images/status-approval-rejected.png" style="width: 16px; height: 16px;" /></a></td>
+<td>Approval rejected</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="advanced.html" class="btn btn-neutral float-right" title="Advanced" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="browsing-data.html" class="btn btn-neutral" title="Browsing published data" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Bojan Kastelic.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
