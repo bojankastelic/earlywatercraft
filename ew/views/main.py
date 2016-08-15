@@ -29,13 +29,11 @@ from ew.views.search_utils import get_search_contexts
 def index(request):
     # Pravice preverjamo zaenkrat le preko grup
     # Uporabnik mora imeti dodeljeno grupo z nazivom tipa resourca
-    if (request.user.is_authenticated()):
+    if (request.user.username != 'anonymous'):
         user = User.objects.get(username=request.user.username)
         user_groups = user.groups.values_list('name', flat=True)
     else:
         user_groups = []
-    print user
-    print user.has_perm('ew.edit');
     search_context =  get_search_contexts(request)
     return render_to_response('index.htm', {
             'main_script': 'index',

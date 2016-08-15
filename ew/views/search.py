@@ -40,7 +40,7 @@ def home_page(request):
     lang = request.GET.get('lang', settings.LANGUAGE_CODE)
     min_max_dates = models.Dates.objects.aggregate(Min('val'), Max('val'))
 
-    if (request.user.is_authenticated()):
+    if (request.user.username != 'anonymous'):
         user = User.objects.get(username=request.user.username)
         if (user.is_staff or user.is_superuser):
            # Grupe vzamemo kar iz nastavitev
@@ -103,7 +103,7 @@ def build_base_search_results_dsl(request):
     
     if term_filter != '':
         # Ce uporabnik ni avtenticiran, prikazemo le veljavne (to je verjetno potrebno se dodelati (mogoce da vidijo le svoje???)!!!)
-        if (not request.user.is_authenticated()):
+        if (request.user.username == 'anonymous'):
             auto_filter = []
             for item in JSONDeserializer().deserialize(term_filter):
                auto_filter.append(item) 
@@ -232,7 +232,7 @@ def search_terms(request):
     return_results = []
     for result in results['hits']['hits']:
         # Ce uporabnik ni avtenticiran, prikazemo le veljavne (to je verjetno potrebno se dodelati (mogoce da vidijo le svoje???)!!!)
-        if (not request.user.is_authenticated()):
+        if (request.user.username == 'anonymous'):
             if ('ewstatus' in result['_source']):
                 if (result['_source']['ewstatus'] != settings.PUBLISHED_LABEL):
                     continue

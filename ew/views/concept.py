@@ -47,7 +47,7 @@ def rdm(request, conceptid):
 
     # Pravice preverjamo zaenkrat le preko grup
     # Uporabnik mora imeti dodeljeno grupo z nazivom tipa resourca
-    if (request.user.is_authenticated()):
+    if (request.user.username != 'anonymous'):
         user = User.objects.get(username=request.user.username)
         user_groups = user.groups.values_list('name', flat=True)
     else:

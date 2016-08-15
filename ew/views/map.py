@@ -26,7 +26,7 @@ def get_page(request):
     resource_id = request.GET.get('resourceid', '')
     # Pravice preverjamo zaenkrat le preko grup
     # Uporabnik mora imeti dodeljeno grupo z nazivom tipa resourca
-    if (request.user.is_authenticated()):
+    if (request.user.username != 'anonymous'):
         user = User.objects.get(username=request.user.username)
         if (user.is_staff or user.is_superuser):
            # Grupe vzamemo kar iz nastavitev

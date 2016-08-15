@@ -67,7 +67,7 @@ def user_can_edit(request):
     #	}
     #else: 
     return {
-       'user_can_edit': request.user.is_authenticated()
+       'user_can_edit': request.user.username != 'anonymous'
     }
 
 def user_has_permission(request):

@@ -32,7 +32,7 @@ from arches.app.views.resources import get_related_resources
 from arches.app.search.search_engine_factory import SearchEngineFactory
 from arches.app.search.elasticsearch_dsl_builder import Query, Terms, Bool, Match, Nested
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import permission_required
 from django.db import transaction
 from django.http import HttpResponseNotFound
 from django.http import HttpResponseRedirect
@@ -87,7 +87,7 @@ def get_user_can_edit_document(current_status, current_group, user, resourcetype
         else:
             return False
 
-@login_required
+@permission_required('edit')
 @csrf_exempt
 def resource_manager(request, resourcetypeid='', form_id='default', resourceid=''):
 
